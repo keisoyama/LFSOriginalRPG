@@ -1,9 +1,10 @@
 ﻿<Properties StartupConfiguration="{ED49F48B-6966-DA7A-4782-285E7B39E8A8}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/BaseStatus.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/BaseItem.cs">
     <Files>
       <File FileName="Assets/BattleManagerMain.cs" Line="17" Column="9" />
-      <File FileName="Assets/BaseHeroAttack.cs" Line="5" Column="28" />
+      <File FileName="Assets/BaseHeroAttack.cs" />
       <File FileName="Assets/BaseStatus.cs" Line="62" Column="44" />
+      <File FileName="Assets/BaseItem.cs" Line="5" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
