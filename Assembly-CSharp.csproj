@@ -63,6 +63,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BaseHeroAttack.cs" />
+    <Compile Include="Assets\BaseMonsterAttack.cs" />
     <Compile Include="Assets\BaseStatus.cs" />
     <Compile Include="Assets\BattleManagerMain.cs" />
     <Reference Include="Unity.Timeline.Editor">
