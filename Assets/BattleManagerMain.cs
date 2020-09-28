@@ -14,6 +14,7 @@ public class BattleManagerMain : MonoBehaviour
         SelectUseMagicOnAlliesTarget,
         SelectItem,
         SelectRecoveryItemTarget
+        
     }
 
     //　現在戦闘に参加している全キャラクター
