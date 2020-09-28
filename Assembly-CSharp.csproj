@@ -63,11 +63,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\BaseHeroAttack.cs" />
-    <Compile Include="Assets\BaseItem.cs" />
-    <Compile Include="Assets\BaseMonsterAttack.cs" />
-    <Compile Include="Assets\BaseStatus.cs" />
-    <Compile Include="Assets\BattleManagerMain.cs" />
+    <Compile Include="Assets\Scripts\Battle\BaseHeroAttack.cs" />
+    <Compile Include="Assets\Scripts\Battle\BaseMonsterAttack.cs" />
+    <Compile Include="Assets\Scripts\Battle\BattleManagerMain.cs" />
+    <Compile Include="Assets\Scripts\Item\Item.cs" />
+    <Compile Include="Assets\Scripts\Item\ItemDIctionary.cs" />
+    <Compile Include="Assets\Scripts\Status\AllyStatus.cs" />
+    <Compile Include="Assets\Scripts\Status\BaseStatus.cs" />
+    <Compile Include="Assets\SerializableDictionary\Example\SerializableDictionaryExample.cs" />
+    <Compile Include="Assets\SerializableDictionary\Example\UserSerializableDictionaries.cs" />
+    <Compile Include="Assets\SerializableDictionary\SerializableDictionary.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/keisoyama/Desktop/作品/unity/LFSOriginalProduct/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

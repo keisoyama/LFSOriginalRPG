@@ -5,7 +5,7 @@ using UnityEngine;
 
 [Serializable]
 [CreateAssetMenu(fileName = "Item", menuName = "CreateItem")]
-public class BaseItem : ScriptableObject
+public class Item : ScriptableObject
 {
     public enum Type
     {

@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{ED49F48B-6966-DA7A-4782-285E7B39E8A8}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/BaseItem.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Item/Item.cs">
     <Files>
-      <File FileName="Assets/BattleManagerMain.cs" Line="17" Column="9" />
-      <File FileName="Assets/BaseHeroAttack.cs" />
-      <File FileName="Assets/BaseStatus.cs" Line="62" Column="44" />
-      <File FileName="Assets/BaseItem.cs" Line="5" Column="23" />
+      <File FileName="Assets/Scripts/Item/ItemDIctionary.cs" Line="8" Column="1" />
+      <File FileName="Assets/Editor/SerializableDictionary.cs" Line="11" Column="2" />
+      <File FileName="Assets/Scripts/Status/AllyStatus.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Item/BaseItem.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
