@@ -161,10 +161,11 @@ public class Command : MonoBehaviour
         useItemInformationPanel.SetActive(false);
 
         //　アイテムパネルボタンがあれば全て削除
-        for (int i = content.transform.childCount - 1; i >= 0; i--)
-        {
-            Destroy(content.transform.GetChild(i).gameObject);
-        }
+        //for (int i = content.transform.childCount - 1; i >= 0; i--)
+        //{
+        //    Destroy(content.transform.GetChild(i).gameObject);
+        //}
+
         //　アイテムを使うキャラクター選択ボタンがあれば全て削除
         for (int i = useItemPanel.transform.childCount - 1; i >= 0; i--)
         {
@@ -236,11 +237,11 @@ public class Command : MonoBehaviour
                 itemInformationPanel.SetActive(false);
                 //　リストをクリア
                 itemPanelButtonList.Clear();
-                //　ItemPanelでCancelを押したらcontent以下のアイテムパネルボタンを全削除
-                for (int i = content.transform.childCount - 1; i >= 0; i--)
-                {
-                    Destroy(content.transform.GetChild(i).gameObject);
-                }
+                ////　ItemPanelでCancelを押したらcontent以下のアイテムパネルボタンを全削除
+                //for (int i = content.transform.childCount - 1; i >= 0; i--)
+                //{
+                //    Destroy(content.transform.GetChild(i).gameObject);
+                //}
 
                 EventSystem.current.SetSelectedGameObject(selectedGameObjectStack.Pop());
                 selectCharacterPanelCanvasGroup.interactable = true;
@@ -358,37 +359,23 @@ public class Command : MonoBehaviour
         }
 
         //　選択解除された時（マウスでUI外をクリックした）は現在のモードによって無理やり選択させる
-        if (EventSystem.current.currentSelectedGameObject == null)
-        {
-            if (currentCommand == CommandMode.CommandPanel)
-            {
-                EventSystem.current.SetSelectedGameObject(commandPanel.transform.GetChild(0).gameObject);
-            }
-            else if (currentCommand == CommandMode.ItemPanel)
-            {
-                EventSystem.current.SetSelectedGameObject(content.transform.GetChild(0).gameObject);
-            }
-            else if (currentCommand == CommandMode.ItemPanelSelectCharacter)
-            {
-                EventSystem.current.SetSelectedGameObject(selectCharacterPanel.transform.GetChild(0).gameObject);
-            }
-            else if (currentCommand == CommandMode.StatusPanel)
-            {
-                EventSystem.current.SetSelectedGameObject(selectCharacterPanel.transform.GetChild(0).gameObject);
-            }
-            else if (currentCommand == CommandMode.StatusPanelSelectCharacter)
-            {
-                EventSystem.current.SetSelectedGameObject(selectCharacterPanel.transform.GetChild(0).gameObject);
-            }
-            else if (currentCommand == CommandMode.UseItemPanel)
-            {
-                EventSystem.current.SetSelectedGameObject(useItemPanel.transform.GetChild(0).gameObject);
-            }
-            else if (currentCommand == CommandMode.UseItemSelectCharacterPanel)
-            {
-                EventSystem.current.SetSelectedGameObject(useItemSelectCharacterPanel.transform.GetChild(0).gameObject);
-            }
-        }
+if (EventSystem.current.currentSelectedGameObject == null) {
+    if (currentCommand == CommandMode.CommandPanel) {
+        EventSystem.current.SetSelectedGameObject(commandPanel.transform.GetChild(0).gameObject);
+    } else if (currentCommand == CommandMode.ItemPanel) {
+        EventSystem.current.SetSelectedGameObject(content.transform.GetChild(0).gameObject);
+    } else if (currentCommand == CommandMode.ItemPanelSelectCharacter) {
+        EventSystem.current.SetSelectedGameObject(selectCharacterPanel.transform.GetChild(0).gameObject);
+    } else if (currentCommand == CommandMode.StatusPanel) {
+        EventSystem.current.SetSelectedGameObject(selectCharacterPanel.transform.GetChild(0).gameObject);
+    } else if (currentCommand == CommandMode.StatusPanelSelectCharacter) {
+        EventSystem.current.SetSelectedGameObject(selectCharacterPanel.transform.GetChild(0).gameObject);
+    } else if (currentCommand == CommandMode.UseItemPanel) {
+        EventSystem.current.SetSelectedGameObject(useItemPanel.transform.GetChild(0).gameObject);
+    } else if (currentCommand == CommandMode.UseItemSelectCharacterPanel) {
+        EventSystem.current.SetSelectedGameObject(useItemSelectCharacterPanel.transform.GetChild(0).gameObject);
+    }
+}
     }
 
     //　選択したコマンドで処理分け
@@ -521,6 +508,7 @@ public class Command : MonoBehaviour
     //　キャラクターが持っているアイテムのボタン表示
     public void CreateItemPanelButton(AllyStatus allyStatus)
     {
+
         itemInformationPanel.SetActive(true);
         selectCharacterPanelCanvasGroup.interactable = false;
 
@@ -531,8 +519,10 @@ public class Command : MonoBehaviour
         //　持っているアイテム分のボタンの作成とクリック時の実行メソッドの設定
         foreach (var item in allyStatus.GetItemDictionary().Keys)
         {
-            itemButtonIns = Instantiate<GameObject>(itemPanelButtonPrefab, content.transform);
+            itemButtonIns = content.transform.GetChild(itemPanelButtonNum).gameObject;
+            itemButtonIns.SetActive(true);
             itemButtonIns.transform.Find("ItemName").GetComponent<Text>().text = item.GetKanjiName();
+            itemButtonIns.GetComponent<Button>().onClick.RemoveAllListeners();
             itemButtonIns.GetComponent<Button>().onClick.AddListener(() => SelectItem(allyStatus, item));
             itemButtonIns.GetComponent<ItemPanelButton>().SetParam(item);
 
@@ -549,14 +539,17 @@ public class Command : MonoBehaviour
                 itemButtonIns.transform.Find("Equip").GetComponent<Text>().text = "E";
             }
 
-            //　アイテムボタンリストに追加
-            itemPanelButtonList.Add(itemButtonIns);
             //　アイテムパネルボタン番号を更新
             itemPanelButtonNum++;
         }
 
+        for (int i = itemPanelButtonNum; i < content.transform.childCount; i++)
+        {
+            content.transform.GetChild(i).gameObject.SetActive(false);
+        }
+
         //　アイテムパネルの表示と最初のアイテムの選択
-        if (content.transform.childCount != 0)
+        if (itemPanelButtonNum != 0)
         {
             //　SelectCharacerPanelで最後にどのゲームオブジェクトを選択していたか
             selectedGameObjectStack.Push(EventSystem.current.currentSelectedGameObject);

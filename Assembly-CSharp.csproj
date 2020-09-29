@@ -67,7 +67,7 @@
     <Compile Include="Assets\Scripts\Battle\BaseHeroAttack.cs" />
     <Compile Include="Assets\Scripts\Battle\BaseMonsterAttack.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleManagerMain.cs" />
-    <Compile Include="Assets\Scripts\Command.cs" />
+    <Compile Include="Assets\Scripts\Command\Command.cs" />
     <Compile Include="Assets\Scripts\Item\Item.cs" />
     <Compile Include="Assets\Scripts\Item\ItemDIctionary.cs" />
     <Compile Include="Assets\Scripts\ItemPanelButton.cs" />
