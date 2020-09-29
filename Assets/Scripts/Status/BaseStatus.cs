@@ -77,7 +77,7 @@ public abstract class BaseStatus : ScriptableObject
         return isPoisonState;
     }
 
-    public void SetNumbness(bool numbnessFlag)
+    public void SetParalyze(bool numbnessFlag)
     {
         isParalyzeState = numbnessFlag;
     }
@@ -87,7 +87,7 @@ public abstract class BaseStatus : ScriptableObject
         return isParalyzeState;
     }
 
-    public void SetSilent(bool silentFlag)
+    public void SetSilence(bool silentFlag)
     {
         isSilentState = silentFlag;
     }

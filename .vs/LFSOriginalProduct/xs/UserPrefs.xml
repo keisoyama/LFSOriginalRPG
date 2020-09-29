@@ -1,15 +1,13 @@
 ﻿<Properties StartupConfiguration="{ED49F48B-6966-DA7A-4782-285E7B39E8A8}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BaseCommand.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Status/BaseStatus.cs">
     <Files>
-      <File FileName="Assets/Scripts/Item/ItemDIctionary.cs" Line="8" Column="1" />
-      <File FileName="Assets/Editor/SerializableDictionary.cs" Line="11" Column="2" />
-      <File FileName="Assets/Scripts/Status/AllyStatus.cs" Line="22" Column="25" />
-      <File FileName="Assets/Scripts/Item/BaseItem.cs" Line="8" Column="14" />
-      <File FileName="Assets/Scripts/Command.cs" Line="59" Column="1" />
+      <File FileName="Assets/Scripts/Command.cs" Line="704" Column="22" />
       <File FileName="Assets/Scripts/Status/PartyStatus.cs" Line="39" Column="2" />
-      <File FileName="Assets/Scripts/Status/CommandPanelButtonScript.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Status/CommandPanelButton.cs" Line="10" Column="33" />
-      <File FileName="Assets/Scripts/BaseCommand.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/BaseCommand.cs" Line="33" Column="39" />
+      <File FileName="Assets/Scripts/ItemPanelButton.cs" Line="7" Column="29" />
+      <File FileName="Assets/Scripts/Status/AllyStatus.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Status/BaseStatus.cs" Line="80" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

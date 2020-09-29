@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Command.cs" />
     <Compile Include="Assets\Scripts\Item\Item.cs" />
     <Compile Include="Assets\Scripts\Item\ItemDIctionary.cs" />
+    <Compile Include="Assets\Scripts\ItemPanelButton.cs" />
     <Compile Include="Assets\Scripts\Status\AllyStatus.cs" />
     <Compile Include="Assets\Scripts\Status\BaseStatus.cs" />
     <Compile Include="Assets\Scripts\Status\CommandPanelButton.cs" />
