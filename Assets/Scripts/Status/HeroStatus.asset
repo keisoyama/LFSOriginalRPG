@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdc4ee2e8b2ae4699b330ace5331e2ff, type: 3}
   m_Name: HeroStatus
   m_EditorClassIdentifier: 
-  characterName: 
+  characterName: "\u52C7\u8005"
   isPoisonState: 0
   isParalyzeState: 0
   isSilentState: 0
