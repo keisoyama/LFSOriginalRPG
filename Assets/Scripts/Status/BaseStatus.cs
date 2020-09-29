@@ -82,7 +82,7 @@ public abstract class BaseStatus : ScriptableObject
         isParalyzeState = numbnessFlag;
     }
 
-    public bool IsNumbnessState()
+    public bool IsParalyzeState()
     {
         return isParalyzeState;
     }

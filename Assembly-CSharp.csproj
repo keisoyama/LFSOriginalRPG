@@ -63,13 +63,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BaseCommand.cs" />
     <Compile Include="Assets\Scripts\Battle\BaseHeroAttack.cs" />
     <Compile Include="Assets\Scripts\Battle\BaseMonsterAttack.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleManagerMain.cs" />
+    <Compile Include="Assets\Scripts\Command.cs" />
     <Compile Include="Assets\Scripts\Item\Item.cs" />
     <Compile Include="Assets\Scripts\Item\ItemDIctionary.cs" />
     <Compile Include="Assets\Scripts\Status\AllyStatus.cs" />
     <Compile Include="Assets\Scripts\Status\BaseStatus.cs" />
+    <Compile Include="Assets\Scripts\Status\CommandPanelButton.cs" />
+    <Compile Include="Assets\Scripts\Status\PartyStatus.cs" />
     <Compile Include="Assets\SerializableDictionary\Example\SerializableDictionaryExample.cs" />
     <Compile Include="Assets\SerializableDictionary\Example\UserSerializableDictionaries.cs" />
     <Compile Include="Assets\SerializableDictionary\SerializableDictionary.cs" />
