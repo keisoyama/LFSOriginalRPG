@@ -57,6 +57,10 @@ public class LoadSceneManager : MonoBehaviour
         {
             yield return StartCoroutine(LoadScene("WorldMap"));
         }
+        else if (scene == SceneMovementData.SceneType.WorldMapToBattle)
+        {
+            yield return StartCoroutine(LoadScene("Battle"));
+        }
 
         //　フェードUIのインスタンス化
         fadeInstance = Instantiate<GameObject>(fadePrefab);

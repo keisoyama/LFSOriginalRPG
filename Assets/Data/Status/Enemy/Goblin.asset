@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc58c57f63494cc4a1628a9235ab511, type: 3}
+  m_Name: Goblin
+  m_EditorClassIdentifier: 
+  characterName: 
+  isPoisonState: 0
+  isParalyzeState: 0
+  isSilentState: 0
+  level: 1
+  maxHp: 100
+  hp: 100
+  maxMp: 50
+  mp: 50
+  agility: 5
+  power: 10
+  strikingStrength: 10
+  magicPower: 10
+  strikingMagic: 10
+  phsicalResistance: 0
+  magicalResistance: 0
+  fireResistance: 0
+  waterResistance: 0
+  woodResistance: 0
+  sunResistance: 0
+  moonResistance: 0
+  gettingExperience: 10
+  gettingMoney: 10
+  dropItemDictionary:
+    m_keys: []
+    m_values: 
