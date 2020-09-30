@@ -68,9 +68,14 @@
     <Compile Include="Assets\Scripts\Battle\BaseMonsterAttack.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleManagerMain.cs" />
     <Compile Include="Assets\Scripts\Command\Command.cs" />
+    <Compile Include="Assets\Scripts\EncountManager.cs" />
+    <Compile Include="Assets\Scripts\GoToOtherScene.cs" />
     <Compile Include="Assets\Scripts\Item\Item.cs" />
     <Compile Include="Assets\Scripts\Item\ItemDIctionary.cs" />
     <Compile Include="Assets\Scripts\ItemPanelButton.cs" />
+    <Compile Include="Assets\Scripts\LoadSceneManager.cs" />
+    <Compile Include="Assets\Scripts\SceneLoadingPosition.cs" />
+    <Compile Include="Assets\Scripts\SceneMovementData.cs" />
     <Compile Include="Assets\Scripts\Status\AllyStatus.cs" />
     <Compile Include="Assets\Scripts\Status\BaseStatus.cs" />
     <Compile Include="Assets\Scripts\Status\CommandPanelButton.cs" />
