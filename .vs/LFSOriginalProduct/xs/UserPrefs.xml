@@ -1,18 +1,7 @@
 ﻿<Properties StartupConfiguration="{ED49F48B-6966-DA7A-4782-285E7B39E8A8}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Battle/BattleManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Battle/BattleStatus.cs">
     <Files>
-      <File FileName="Assets/Scripts/Command.cs" Line="527" Column="55" />
-      <File FileName="Assets/Scripts/EncountManager.cs" Line="56" Column="61" />
-      <File FileName="Assets/Scripts/SceneMovementData.cs" Line="16" Column="25" />
-      <File FileName="Assets/Scripts/SceneLoadingPosition.cs" Line="34" Column="2" />
-      <File FileName="Assets/Scripts/LoadSceneManager.cs" Line="45" Column="26" />
-      <File FileName="Assets/Scripts/GoToOtherScene.cs" Line="19" Column="45" />
-      <File FileName="Assets/Scripts/Status/EnemyStatus.cs" Line="12" Column="21" />
-      <File FileName="Assets/Scripts/Status/EnemyPartyStatus.cs" Line="25" Column="1" />
-      <File FileName="Assets/Scripts/Battle/BattlePartyStatus.cs" Line="17" Column="2" />
-      <File FileName="Assets/Scripts/Battle/BattleData.cs" Line="35" Column="2" />
-      <File FileName="Assets/Scripts/Status/EnemyPartyStatusList.cs" Line="17" Column="2" />
-      <File FileName="Assets/Scripts/Battle/BattleManager.cs" Line="37" Column="2" />
+      <File FileName="Assets/Scripts/Battle/BattleStatus.cs" Line="6" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

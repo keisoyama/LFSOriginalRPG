@@ -69,8 +69,10 @@
     <Compile Include="Assets\Scripts\Battle\BattleManager.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleManagerMain.cs" />
     <Compile Include="Assets\Scripts\Battle\BattlePartyStatus.cs" />
+    <Compile Include="Assets\Scripts\Battle\BattleStatus.cs" />
     <Compile Include="Assets\Scripts\Command\BaseCommand.cs" />
     <Compile Include="Assets\Scripts\Command\Command.cs" />
+    <Compile Include="Assets\Scripts\Command\IdleCommand.cs" />
     <Compile Include="Assets\Scripts\Item\Item.cs" />
     <Compile Include="Assets\Scripts\Item\ItemDIctionary.cs" />
     <Compile Include="Assets\Scripts\Item\ItemPanelButton.cs" />
