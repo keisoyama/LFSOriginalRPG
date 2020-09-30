@@ -57,6 +57,21 @@ public abstract class BaseStatus : ScriptableObject
     [SerializeField]
     private int fireResistance, waterResistance, woodResistance, sunResistance, moonResistance;
 
+    //　持っているスキル
+    [SerializeField]
+    private List<Skill> skillList = null;
+
+    public void SetSkillList(List<Skill> skillList)
+    {
+        this.skillList = skillList;
+    }
+
+    public List<Skill> GetSkillList()
+    {
+        return skillList;
+    }
+
+
     public void SetCharacterName(string characterName)
     {
         this.characterName = characterName;

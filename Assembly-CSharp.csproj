@@ -81,6 +81,8 @@
     <Compile Include="Assets\Scripts\SceneManagement\LoadSceneManager.cs" />
     <Compile Include="Assets\Scripts\SceneManagement\SceneLoadingPosition.cs" />
     <Compile Include="Assets\Scripts\SceneManagement\SceneMovementData.cs" />
+    <Compile Include="Assets\Scripts\Skill\Magic.cs" />
+    <Compile Include="Assets\Scripts\Skill\Skill.cs" />
     <Compile Include="Assets\Scripts\Status\AllyStatus.cs" />
     <Compile Include="Assets\Scripts\Status\BaseStatus.cs" />
     <Compile Include="Assets\Scripts\Status\CommandPanelButton.cs" />
