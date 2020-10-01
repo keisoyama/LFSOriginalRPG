@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Battle\BattleManagerMain.cs" />
     <Compile Include="Assets\Scripts\Battle\BattlePartyStatus.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleStatus.cs" />
+    <Compile Include="Assets\Scripts\Battle\CharacterBattle.cs" />
     <Compile Include="Assets\Scripts\Command\BaseCommand.cs" />
     <Compile Include="Assets\Scripts\Command\Command.cs" />
     <Compile Include="Assets\Scripts\Command\IdleCommand.cs" />

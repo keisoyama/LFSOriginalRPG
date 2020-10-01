@@ -1,15 +1,18 @@
 ﻿<Properties StartupConfiguration="{ED49F48B-6966-DA7A-4782-285E7B39E8A8}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Status/BaseStatus.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Battle/CharacterBattle.cs">
     <Files>
       <File FileName="Assets/Scripts/Battle/BattleStatus.cs" Line="6" Column="27" />
-      <File FileName="Assets/Scripts/Skill/Skill.cs" Line="14" Column="1" />
-      <File FileName="Assets/Scripts/Skill/Magic.cs" Line="18" Column="10" />
+      <File FileName="Assets/Scripts/Skill/Skill.cs" />
+      <File FileName="Assets/Scripts/Skill/Magic.cs" />
       <File FileName="Assets/Scripts/Status/BaseStatus.cs" Line="73" Column="1" />
+      <File FileName="Assets/Scripts/Battle/BattleManager.cs" Line="268" Column="34" />
+      <File FileName="Assets/Scripts/Battle/BattleData.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Battle/CharacterBattle.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="c1919683-5d69-4a48-acae-c5a3895a7e44" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="63865059-bfe6-4102-8f64-fc09ac033852" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
