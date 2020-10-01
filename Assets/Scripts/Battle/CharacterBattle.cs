@@ -508,6 +508,11 @@ public class CharacterBattle : MonoBehaviour
         return isPoison;
     }
 
+    public bool IsSilence()
+    {
+        return isSilent;
+    }
+
     public void SetNumbness(bool isNumbness)
     {
         this.isNumbness = isNumbness;

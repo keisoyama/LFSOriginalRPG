@@ -15,9 +15,6 @@ public class Skill : ScriptableObject
         Item,
         MagicAttack,
         RecoveryMagic,
-        PoisonnouRecoveryMagic,
-        ParalyzeRecoveryMagic,
-        SilenceRecoveryMagic,
         IncreaseAttackPowerMagic,
         IncreaseDefencePowerMagic
     }

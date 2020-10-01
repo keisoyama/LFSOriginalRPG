@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Battle\BaseHeroAttack.cs" />
     <Compile Include="Assets\Scripts\Battle\BaseMonsterAttack.cs" />
+    <Compile Include="Assets\Scripts\Battle\BattleCommandPanelButton.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleData.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleManager.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleManagerMain.cs" />
