@@ -33,6 +33,7 @@ MonoBehaviour:
   woodResistance: 0
   sunResistance: 0
   moonResistance: 0
+  skillList: []
   earnedExperience: 0
   equipWeapon: {fileID: 0}
   equipArmor: {fileID: 0}

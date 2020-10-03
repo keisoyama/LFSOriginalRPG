@@ -83,4 +83,14 @@ public class AllyStatus : BaseStatus
     {
         return itemDictionary[item];
     }
+
+    //　レベルアップデータ
+    [SerializeField]
+    private LevelUpData levelUpData = null;
+
+    //　レベルアップデータを返す
+    public LevelUpData GetLevelUpData()
+    {
+        return levelUpData;
+    }
 }

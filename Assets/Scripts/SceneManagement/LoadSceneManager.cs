@@ -42,11 +42,18 @@ public class LoadSceneManager : MonoBehaviour
     //　フェードをした後にシーン読み込み
     IEnumerator FadeAndLoadScene(SceneMovementData.SceneType scene)
     {
-        //　フェードUIのインスタンス化
-        fadeInstance = Instantiate<GameObject>(fadePrefab);
-        fadeImage = fadeInstance.GetComponentInChildren<Image>();
-        //　フェードアウト処理
-        yield return StartCoroutine(Fade(1f));
+        if (scene != SceneMovementData.SceneType.WorldMapToBattle)
+        {
+            //　フェードUIのインスタンス化
+            fadeInstance = Instantiate<GameObject>(fadePrefab);
+            fadeImage = fadeInstance.GetComponentInChildren<Image>();
+            //　フェードアウト処理
+            yield return StartCoroutine(Fade(1f));
+        }
+        //else
+        //{
+        //    yield return StartCoroutine(FadeWorldMapToBattle(0.1f));
+        //}
 
         //　シーンの読み込み
         if (scene == SceneMovementData.SceneType.FirstVillage)
@@ -60,6 +67,14 @@ public class LoadSceneManager : MonoBehaviour
         else if (scene == SceneMovementData.SceneType.WorldMapToBattle)
         {
             yield return StartCoroutine(LoadScene("Battle"));
+        }
+        else if (scene == SceneMovementData.SceneType.BattleToWorldMap)
+        {
+            yield return StartCoroutine(LoadScene("WorldMap"));
+        }
+        else if (scene == SceneMovementData.SceneType.StartGame)
+        {
+            yield return StartCoroutine(LoadScene("Village"));
         }
 
         //　フェードUIのインスタンス化

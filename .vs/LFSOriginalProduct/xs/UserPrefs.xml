@@ -1,15 +1,20 @@
 ﻿<Properties StartupConfiguration="{ED49F48B-6966-DA7A-4782-285E7B39E8A8}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Battle/DeleteMessagePanel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SceneManagement/LoadSceneManager.cs">
     <Files>
       <File FileName="Assets/Scripts/Battle/BattleStatus.cs" Line="59" Column="38" />
       <File FileName="Assets/Scripts/Skill/Skill.cs" />
       <File FileName="Assets/Scripts/Skill/Magic.cs" />
       <File FileName="Assets/Scripts/Status/BaseStatus.cs" />
-      <File FileName="Assets/Scripts/Battle/BattleManager.cs" Line="830" Column="6" />
-      <File FileName="Assets/Scripts/Battle/BattleData.cs" />
-      <File FileName="Assets/Scripts/Battle/CharacterBattle.cs" Line="513" Column="24" />
-      <File FileName="Assets/Scripts/Battle/BattleCommandPanelButton.cs" />
-      <File FileName="Assets/Scripts/Battle/DeleteMessagePanel.cs" Line="21" Column="2" />
+      <File FileName="Assets/Scripts/Battle/BattleManager.cs" Line="726" Column="6" />
+      <File FileName="Assets/Scripts/Battle/BattleData.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Battle/CharacterBattle.cs" Line="440" Column="79" />
+      <File FileName="Assets/Scripts/Status/AllyStatus.cs" Line="85" Column="6" />
+      <File FileName="Assets/Scripts/Battle/BattleResult.cs" Line="138" Column="103" />
+      <File FileName="Assets/Scripts/Battle/MusicManager.cs" Line="5" Column="25" />
+      <File FileName="Assets/Scripts/SceneManagement/SceneMovementData.cs" Line="60" Column="6" />
+      <File FileName="Assets/Scripts/SceneManagement/EncountManager.cs" Line="78" Column="34" />
+      <File FileName="Assets/Scripts/SceneManagement/SceneLoadingPosition.cs" Line="47" Column="6" />
+      <File FileName="Assets/Scripts/SceneManagement/LoadSceneManager.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

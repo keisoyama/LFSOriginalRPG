@@ -7,14 +7,20 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SceneMovementData", menuName = "CreateSceneMovementData")]
 public class SceneMovementData : ScriptableObject
 {
-
     public enum SceneType
     {
         StartGame,
         FirstVillage,
         FirstVillageToWorldMap,
-        WorldMapToBattle
+        WorldMapToBattle,
+        BattleToWorldMap,
     }
+
+    //　ワールドマップ→戦闘シーンへ移行した時のワールドマップの位置情報
+    private Vector3 worldMapPos;
+    //　ワールドマップ→戦闘シーンへ移行した時のワールドマップの位置情報
+    private Quaternion worldMapRot;
+
     [SerializeField]
     private SceneType sceneType;
 
@@ -31,5 +37,25 @@ public class SceneMovementData : ScriptableObject
     public SceneType GetSceneType()
     {
         return sceneType;
+    }
+
+    public void SetWorldMapPos(Vector3 pos)
+    {
+        worldMapPos = pos;
+    }
+
+    public Vector3 GetWorldMapPos()
+    {
+        return worldMapPos;
+    }
+
+    public void SetWorldMapRot(Quaternion rot)
+    {
+        worldMapRot = rot;
+    }
+
+    public Quaternion GetWorldMapRot()
+    {
+        return worldMapRot;
     }
 }

@@ -70,9 +70,11 @@
     <Compile Include="Assets\Scripts\Battle\BattleManager.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleManagerMain.cs" />
     <Compile Include="Assets\Scripts\Battle\BattlePartyStatus.cs" />
+    <Compile Include="Assets\Scripts\Battle\BattleResult.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleStatus.cs" />
     <Compile Include="Assets\Scripts\Battle\CharacterBattle.cs" />
     <Compile Include="Assets\Scripts\Battle\DeleteMessagePanel.cs" />
+    <Compile Include="Assets\Scripts\Battle\MusicManager.cs" />
     <Compile Include="Assets\Scripts\Command\BaseCommand.cs" />
     <Compile Include="Assets\Scripts\Command\Command.cs" />
     <Compile Include="Assets\Scripts\Command\IdleCommand.cs" />
@@ -92,6 +94,8 @@
     <Compile Include="Assets\Scripts\Status\EnemyPartyStatus.cs" />
     <Compile Include="Assets\Scripts\Status\EnemyPartyStatusList.cs" />
     <Compile Include="Assets\Scripts\Status\EnemyStatus.cs" />
+    <Compile Include="Assets\Scripts\Status\LevelUpData.cs" />
+    <Compile Include="Assets\Scripts\Status\LevelUpDictionary.cs" />
     <Compile Include="Assets\Scripts\Status\PartyStatus.cs" />
     <Compile Include="Assets\SerializableDictionary\Example\SerializableDictionaryExample.cs" />
     <Compile Include="Assets\SerializableDictionary\Example\UserSerializableDictionaries.cs" />

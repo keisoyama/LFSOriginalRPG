@@ -28,6 +28,9 @@ public class EncountManager : MonoBehaviour
     [SerializeField]
     private EnemyPartyStatusList enemyPartyStatusList = null;
 
+    [SerializeField]
+    private SceneMovementData sceneMovementData = null;
+
 
     // Start is called before the first frame update
     void Start()
@@ -67,6 +70,8 @@ public class EncountManager : MonoBehaviour
             {
                 battleData.SetEnemyPartyStatus(enemyPartyStatusList.GetPartyMembersList().Find(enemyPartyStatus => enemyPartyStatus.GetPartyName() == "EnemyGroup4"));
             }
+            sceneMovementData.SetWorldMapPos(YusyaObjct.transform.position);
+            sceneMovementData.SetWorldMapRot(YusyaObjct.transform.rotation);
             sceneManager.GoToNextScene(SceneMovementData.SceneType.WorldMapToBattle);
             elapsedTime = 0f;
             SetDestinationTime();

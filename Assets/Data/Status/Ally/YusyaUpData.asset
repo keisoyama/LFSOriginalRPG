@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 601fe8c92ebf2419e93e203795293cbd, type: 3}
+  m_Name: YusyaUpData
+  m_EditorClassIdentifier: 
+  requiredExperience:
+    m_keys: 0100000002000000030000000400000005000000
+    m_values: 0000000064000000f4010000d0070000a00f0000
+  probabilityToIncreaseMaxHP: 100
+  probabliityToIncreaseMaxMP: 100
+  probabilityToIncreaseAgility: 100
+  probabilityToIncreasePower: 100
+  probabilityToIncreaseStrikingStrength: 100
+  probabilityToIncreaseMagicPower: 100
+  minHPRisingLimit: 10
+  minMPRisingLimit: 10
+  minAgilityRisingLimit: 1
+  minPowerRisingLimit: 1
+  minStrikingStrengthRisingLimit: 1
+  minMagicPowerRisingLimit: 1
+  maxHPRisingLimit: 50
+  maxMPRisingLimit: 50
+  maxAgilityRisingLimit: 2
+  maxPowerRisingLimit: 2
+  maxStrikingStrengthRisingLimit: 2
+  maxMagicPowerRisingLimit: 2

@@ -86,6 +86,10 @@ public class BattleManager : MonoBehaviour
     //　メッセージパネルインスタンス
     private GameObject messagePanelIns;
 
+    //　結果表示処理スクリプト
+    [SerializeField]
+    private BattleResult battleResult;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -700,16 +704,21 @@ public class BattleManager : MonoBehaviour
     //　逃げる
     public void GetAway(GameObject character)
     {
+        character.transform.Find("Marker/Image2").gameObject.SetActive(false);
+
         var randomValue = Random.value;
-        if (0f <= randomValue && randomValue <= 0.2f)
+        if (0f <= randomValue && randomValue <= 0.8f)
         {
+            //Debug.Log("逃げるのに成功した。");
             ShowMessage("逃げるのに成功した。");
-            battleIsOver = true;
             commandPanel.gameObject.SetActive(false);
+            battleIsOver = true;
             //　戦闘終了
+            battleResult.InitialProcessingOfRanAwayResult();
         }
         else
         {
+            //Debug.Log("逃げるのに失敗した。");
             ShowMessage("逃げるのに失敗した。");
             commandPanel.gameObject.SetActive(false);
             ChangeNextChara();
@@ -798,8 +807,25 @@ public class BattleManager : MonoBehaviour
         enemyCharacterInBattleList.Remove(deleteObj);
         if (enemyCharacterInBattleList.Count == 0)
         {
+            //Debug.Log("敵が全滅");
             ShowMessage("敵が全滅");
             battleIsOver = true;
+            CharacterBattle characterBattleScript;
+            foreach (var character in allCharacterList)
+            {
+                //　味方キャラクターの戦闘で増減したHPとMPを通常のステータスに反映させる
+                characterBattleScript = character.GetComponent<CharacterBattle>();
+                if (characterBattleScript.GetCharacterStatus() as AllyStatus != null)
+                {
+                    characterBattleScript.GetCharacterStatus().SetHp(characterBattleScript.GetHp());
+                    characterBattleScript.GetCharacterStatus().SetMp(characterBattleScript.GetMp());
+                    characterBattleScript.GetCharacterStatus().SetParalyze(characterBattleScript.IsNumbness());
+                    characterBattleScript.GetCharacterStatus().SetPoisonState(characterBattleScript.IsPoison());
+                    characterBattleScript.GetCharacterStatus().SetSilence(characterBattleScript.IsSilence());
+                }
+            }
+            //　勝利時の結果表示
+            battleResult.InitialProcessingOfVictoryResult(allCharacterList, allyCharacterInBattleList);
         }
     }
 
@@ -808,8 +834,25 @@ public class BattleManager : MonoBehaviour
         allyCharacterInBattleList.Remove(deleteObj);
         if (allyCharacterInBattleList.Count == 0)
         {
+            //Debug.Log("味方が全滅");
             ShowMessage("味方が全滅");
             battleIsOver = true;
+            CharacterBattle characterBattleScript;
+            foreach (var character in allCharacterList)
+            {
+                //　味方キャラクターの戦闘で増減したHPとMPを通常のステータスに反映させる
+                characterBattleScript = character.GetComponent<CharacterBattle>();
+                if (characterBattleScript.GetCharacterStatus() as AllyStatus != null)
+                {
+                    characterBattleScript.GetCharacterStatus().SetHp(characterBattleScript.GetHp());
+                    characterBattleScript.GetCharacterStatus().SetMp(characterBattleScript.GetMp());
+                    characterBattleScript.GetCharacterStatus().SetParalyze(characterBattleScript.IsNumbness());
+                    characterBattleScript.GetCharacterStatus().SetPoisonState(characterBattleScript.IsPoison());
+                    characterBattleScript.GetCharacterStatus().SetSilence(characterBattleScript.IsSilence());
+                }
+            }
+            //　敗戦時の結果表示
+            battleResult.InitialProcessingOfDefeatResult();
         }
     }
 
