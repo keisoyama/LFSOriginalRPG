@@ -77,9 +77,20 @@ public class BattleManager : MonoBehaviour
     //　最後に選択していたゲームオブジェクトをスタック
     private Stack<GameObject> selectedGameObjectStack = new Stack<GameObject>();
 
+    //　メッセージパネルプレハブ
+    [SerializeField]
+    private GameObject messagePanel;
+    //　BattleUI
+    [SerializeField]
+    private Transform battleUI;
+    //　メッセージパネルインスタンス
+    private GameObject messagePanelIns;
+
     // Start is called before the first frame update
     void Start()
     {
+        ShowMessage("戦闘開始");
+
         //　キャラクターインスタンスの親
         Transform charactersParent = new GameObject("Characters").transform;
         //　キャラクターを配置するTransform
@@ -319,12 +330,10 @@ public class BattleManager : MonoBehaviour
         //　EnemyStatusにキャスト出来る場合は敵の攻撃処理
         if (characterStatus as EnemyStatus != null)
         {
-            Debug.Log(character.gameObject.name + "の攻撃");
             EnemyAttack(character);
         }
         else
         {
-            Debug.Log(characterStatus.GetCharacterName() + "の攻撃");
             AllyAttack(character);
         }
     }
@@ -537,7 +546,7 @@ public class BattleManager : MonoBehaviour
         {
             if (targetCharacterBattleScript.GetHp() == targetCharacterBattleScript.GetCharacterStatus().GetMaxHp())
             {
-                Debug.Log(targetCharacter.name + "は全快です。");
+                ShowMessage(targetCharacter.name + "は全快です。");
                 return;
             }
             battleState = CharacterBattle.BattleState.Healing;
@@ -546,7 +555,7 @@ public class BattleManager : MonoBehaviour
         {
             if (targetCharacterBattleScript.IsIncreasePower())
             {
-                Debug.Log("既に攻撃力を上げています。");
+                ShowMessage("既に攻撃力を上げています。");
                 return;
             }
             battleState = CharacterBattle.BattleState.IncreaseAttackPowerMagic;
@@ -555,7 +564,7 @@ public class BattleManager : MonoBehaviour
         {
             if (targetCharacterBattleScript.IsIncreaseStrikingStrength())
             {
-                Debug.Log("既に防御力を上げています。");
+                ShowMessage("既に防御力を上げています。");
                 return;
             }
             battleState = CharacterBattle.BattleState.IncreaseDefencePowerMagic;
@@ -603,7 +612,7 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("使えるアイテムがありません。");
+            ShowMessage("使えるアイテムがありません。");
         }
     }
 
@@ -641,7 +650,7 @@ public class BattleManager : MonoBehaviour
         {
             if (targetCharacterBattleScript.GetHp() == targetCharacterBattleScript.GetCharacterStatus().GetMaxHp())
             {
-                Debug.Log(targetCharacter.name + "は全快です。");
+                ShowMessage(targetCharacter.name + "は全快です。");
                 return;
             }
             battleState = CharacterBattle.BattleState.UseHPRecoveryItem;
@@ -650,7 +659,7 @@ public class BattleManager : MonoBehaviour
         {
             if (targetCharacterBattleScript.GetMp() == targetCharacterBattleScript.GetCharacterStatus().GetMaxMp())
             {
-                Debug.Log(targetCharacter.name + "はMP回復をする必要がありません。");
+                ShowMessage(targetCharacter.name + "はMP回復をする必要がありません。");
                 return;
             }
             battleState = CharacterBattle.BattleState.UseMPRecoveryItem;
@@ -659,7 +668,7 @@ public class BattleManager : MonoBehaviour
         {
             if (!targetCharacterBattleScript.IsNumbness())
             {
-                Debug.Log(targetCharacter.name + "は痺れ状態ではありません。");
+                ShowMessage(targetCharacter.name + "は痺れ状態ではありません。");
                 return;
             }
             battleState = CharacterBattle.BattleState.UseParalyzeRecoveryItem;
@@ -668,7 +677,7 @@ public class BattleManager : MonoBehaviour
         {
             if (!targetCharacterBattleScript.IsPoison())
             {
-                Debug.Log(targetCharacter.name + "は毒状態ではありません。");
+                ShowMessage(targetCharacter.name + "は毒状態ではありません。");
                 return;
             }
             battleState = CharacterBattle.BattleState.UsePoisonRecoveryItem;
@@ -677,7 +686,7 @@ public class BattleManager : MonoBehaviour
         {
             if (!targetCharacterBattleScript.IsSilence())
             {
-                Debug.Log(targetCharacter.name + "は毒状態ではありません。");
+                ShowMessage(targetCharacter.name + "は毒状態ではありません。");
                 return;
             }
             battleState = CharacterBattle.BattleState.UsePoisonRecoveryItem;
@@ -694,14 +703,14 @@ public class BattleManager : MonoBehaviour
         var randomValue = Random.value;
         if (0f <= randomValue && randomValue <= 0.2f)
         {
-            Debug.Log("逃げるのに成功した。");
+            ShowMessage("逃げるのに成功した。");
             battleIsOver = true;
             commandPanel.gameObject.SetActive(false);
             //　戦闘終了
         }
         else
         {
-            Debug.Log("逃げるのに失敗した。");
+            ShowMessage("逃げるのに失敗した。");
             commandPanel.gameObject.SetActive(false);
             ChangeNextChara();
         }
@@ -729,7 +738,6 @@ public class BattleManager : MonoBehaviour
             var targetNum = (int)(Random.value * allyCharacterInBattleList.Count);
             //　攻撃相手のCharacterBattleScript
             characterBattleScript.ChooseAttackOptions(CharacterBattle.BattleState.DirectAttack, allyCharacterInBattleList[targetNum], nowSkill);
-            Debug.Log(character.name + "は" + nowSkill.GetKanjiName() + "を行った");
         }
         else if (nowSkill.GetSkillType() == Skill.Type.MagicAttack)
         {
@@ -738,14 +746,12 @@ public class BattleManager : MonoBehaviour
             {
                 //　攻撃相手のCharacterBattleScript
                 characterBattleScript.ChooseAttackOptions(CharacterBattle.BattleState.MagicAttack, allyCharacterInBattleList[targetNum], nowSkill);
-                Debug.Log(character.name + "は" + nowSkill.GetKanjiName() + "を行った");
             }
             else
             {
                 Debug.Log("MPが足りない！");
                 //　MPが足りない場合は直接攻撃を行う
                 characterBattleScript.ChooseAttackOptions(CharacterBattle.BattleState.DirectAttack, allyCharacterInBattleList[targetNum], characterStatus.GetSkillList().Find(skill => skill.GetSkillType() == Skill.Type.DirectAttack));
-                Debug.Log(character.name + "は攻撃を行った");
             }
         }
         else if (nowSkill.GetSkillType() == Skill.Type.RecoveryMagic)
@@ -755,7 +761,6 @@ public class BattleManager : MonoBehaviour
                 var targetNum = (int)(Random.value * enemyCharacterInBattleList.Count);
                 //　回復相手のCharacterBattleScript
                 characterBattleScript.ChooseAttackOptions(CharacterBattle.BattleState.Healing, enemyCharacterInBattleList[targetNum], nowSkill);
-                Debug.Log(character.name + "は" + nowSkill.GetKanjiName() + "を行った");
             }
             else
             {
@@ -763,7 +768,6 @@ public class BattleManager : MonoBehaviour
                 var targetNum = (int)(Random.value * allyCharacterInBattleList.Count);
                 //　MPが足りない場合は直接攻撃を行う
                 characterBattleScript.ChooseAttackOptions(CharacterBattle.BattleState.DirectAttack, allyCharacterInBattleList[targetNum], characterStatus.GetSkillList().Find(skill => skill.GetSkillType() == Skill.Type.DirectAttack));
-                Debug.Log(character.name + "は攻撃を行った");
             }
         }
     }
@@ -794,7 +798,7 @@ public class BattleManager : MonoBehaviour
         enemyCharacterInBattleList.Remove(deleteObj);
         if (enemyCharacterInBattleList.Count == 0)
         {
-            Debug.Log("敵が全滅");
+            ShowMessage("敵が全滅");
             battleIsOver = true;
         }
     }
@@ -804,8 +808,19 @@ public class BattleManager : MonoBehaviour
         allyCharacterInBattleList.Remove(deleteObj);
         if (allyCharacterInBattleList.Count == 0)
         {
-            Debug.Log("味方が全滅");
+            ShowMessage("味方が全滅");
             battleIsOver = true;
         }
+    }
+
+    //　メッセージ表示
+    public void ShowMessage(string message)
+    {
+        if (messagePanelIns != null)
+        {
+            Destroy(messagePanelIns);
+        }
+        messagePanelIns = Instantiate<GameObject>(messagePanel, battleUI);
+        messagePanelIns.transform.Find("Text").GetComponent<Text>().text = message;
     }
 }

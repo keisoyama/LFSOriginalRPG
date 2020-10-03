@@ -208,6 +208,7 @@ public class CharacterBattle : MonoBehaviour
 
         if (selectOption == BattleState.DirectAttack)
         {
+            battleManager.ShowMessage(gameObject.name + "は" + currentTarget.name + "に" + currentSkill.GetKanjiName() + "を行った。");
         }
         else if (selectOption == BattleState.MagicAttack
           || selectOption == BattleState.Healing
@@ -217,6 +218,7 @@ public class CharacterBattle : MonoBehaviour
         {
             //　魔法使用者のMPを減らす
             SetMp(GetMp() - ((Magic)skill).GetAmountToUseMagicPoints());
+            battleManager.ShowMessage(gameObject.name + "は" + currentTarget.name + "に" + currentSkill.GetKanjiName() + "を使った。");
             //　使用者が味方キャラクターであればStatusPanelの更新
             if (GetCharacterStatus() as AllyStatus != null)
             {
@@ -231,6 +233,7 @@ public class CharacterBattle : MonoBehaviour
           )
         {
             currentItem = item;
+            battleManager.ShowMessage(gameObject.name + "は" + currentTarget.name + "に" + item.GetKanjiName() + "を使った。");
         }
     }
 
@@ -252,6 +255,7 @@ public class CharacterBattle : MonoBehaviour
             //　攻撃相手の通常の防御力＋相手のキャラの補助値
             var targetDefencePower = castedTargetStatus.GetStrikingStrength() + (castedTargetStatus.GetEquipArmor()?.GetAmount() ?? 0) + targetCharacterBattleScript.GetAuxiliaryStrikingStrength();
             damage = Mathf.Max(0, (baseStatus.GetPower() + auxiliaryPower) - targetDefencePower);
+            battleManager.ShowMessage(currentTarget.name + "は" + damage + "のダメージを受けた。");
             //　相手のステータスのHPをセット
             targetCharacterBattleScript.SetHp(targetCharacterBattleScript.GetHp() - damage);
             //　ステータスUIを更新
@@ -263,6 +267,7 @@ public class CharacterBattle : MonoBehaviour
             //　攻撃相手の通常の防御力＋相手のキャラの補助値
             var targetDefencePower = castedTargetStatus.GetStrikingStrength() + targetCharacterBattleScript.GetAuxiliaryStrikingStrength();
             damage = Mathf.Max(0, (baseStatus.GetPower() + (((AllyStatus)baseStatus).GetEquipWeapon()?.GetAmount() ?? 0) + auxiliaryPower) - targetDefencePower);
+            battleManager.ShowMessage(currentTarget.name + "は" + damage + "のダメージを受けた。");
             //　敵のステータスのHPをセット
             targetCharacterBattleScript.SetHp(targetCharacterBattleScript.GetHp() - damage);
         }
@@ -271,7 +276,6 @@ public class CharacterBattle : MonoBehaviour
             Debug.LogError("直接攻撃でターゲットが設定されていない");
         }
 
-        Debug.Log(gameObject.name + "は" + currentTarget.name + "に" + currentSkill.GetKanjiName() + "をして" + damage + "を与えた。");
     }
 
     //魔法攻撃のダメージ処理
@@ -285,6 +289,7 @@ public class CharacterBattle : MonoBehaviour
             var castedTargetStatus = (AllyStatus)targetCharacterBattleScript.GetCharacterStatus();
             var targetDefencePower = castedTargetStatus.GetStrikingStrength() + (castedTargetStatus.GetEquipArmor()?.GetAmount() ?? 0);
             damage = Mathf.Max(0, ((Magic)currentSkill).GetMagicPower() );
+            battleManager.ShowMessage(currentTarget.name + "は" + damage + "のダメージを受けた。");
             ////　相手のステータスのHPをセット
             targetCharacterBattleScript.SetHp(targetCharacterBattleScript.GetHp() - damage);
             //　ステータスUIを更新
@@ -295,6 +300,7 @@ public class CharacterBattle : MonoBehaviour
             var castedTargetStatus = (EnemyStatus)targetCharacterBattleScript.GetCharacterStatus();
             var targetDefencePower = castedTargetStatus.GetStrikingStrength();
             damage = Mathf.Max(0, ((Magic)currentSkill).GetMagicPower() - targetDefencePower);
+            battleManager.ShowMessage(currentTarget.name + "は" + damage + "のダメージを受けた。");
             //　相手のステータスのHPをセット
             targetCharacterBattleScript.SetHp(targetCharacterBattleScript.GetHp() - damage);
         }
@@ -324,7 +330,7 @@ public class CharacterBattle : MonoBehaviour
             {
                 targetCharacterBattleScript.SetHp(GetHp() + recoveryPoint);
             }
-            Debug.Log(gameObject.name + "は" + ((Magic)currentSkill).GetKanjiName() + "を使って" + currentTarget.name + "を" + recoveryPoint + "回復した。");
+            battleManager.ShowMessage(currentTarget.name + "を" + recoveryPoint + "回復した。");
         }
         //攻撃アップ魔法
         else if (magicType == Skill.Type.IncreaseAttackPowerMagic)
@@ -332,7 +338,7 @@ public class CharacterBattle : MonoBehaviour
             increasePowerPoint = ((Magic)currentSkill).GetMagicPower() ;
             targetCharacterBattleScript.SetAuxiliaryPower(targetCharacterBattleScript.GetAuxiliaryPower() * increasePowerPoint);
             targetCharacterBattleScript.SetIsIncreasePower(true);
-            Debug.Log(gameObject.name + "は" + ((Magic)currentSkill).GetKanjiName() + "を使って" + currentTarget.name + "の力を増やした");
+            battleManager.ShowMessage(currentTarget.name + "の力を増やした。");
         }
         //防御アップ魔法
         else if (magicType == Skill.Type.IncreaseDefencePowerMagic)
@@ -340,7 +346,7 @@ public class CharacterBattle : MonoBehaviour
             increaseStrikingStrengthPoint = ((Magic)currentSkill).GetMagicPower();
             targetCharacterBattleScript.SetAuxiliaryStrikingStrength(targetCharacterBattleScript.GetAuxiliaryStrikingStrength() * increaseStrikingStrengthPoint);
             targetCharacterBattleScript.SetIsIncreaseStrikingStrength(true);
-            Debug.Log(gameObject.name + "は" + ((Magic)currentSkill).GetKanjiName() + "を使って" + currentTarget.name + "の防御を増やした。");
+            battleManager.ShowMessage(currentTarget.name + "の防御を増やした。");
         }
     }
 
@@ -355,7 +361,7 @@ public class CharacterBattle : MonoBehaviour
             var recoveryPoint = currentItem.GetAmount();
             targetCharacterBattleScript.SetHp(targetCharacterBattleScript.GetHp() + recoveryPoint);
             battleStatusScript.UpdateStatus(targetBaseStatus, BattleStatus.Status.HP, targetCharacterBattleScript.GetHp());
-            Debug.Log(gameObject.name + "は" + currentItem.GetKanjiName() + "を使って" + currentTarget.name + "のHPを" + recoveryPoint + "回復した。");
+            battleManager.ShowMessage(currentTarget.name + "のHPを" + recoveryPoint + "回復した。");
         }
         else if (currentItem.GetItemType() == Item.Type.MPRecovery)
         {
@@ -363,22 +369,22 @@ public class CharacterBattle : MonoBehaviour
             var recoveryPoint = currentItem.GetAmount();
             targetCharacterBattleScript.SetMp(targetCharacterBattleScript.GetMp() + recoveryPoint);
             battleStatusScript.UpdateStatus(targetBaseStatus, BattleStatus.Status.MP, targetCharacterBattleScript.GetMp());
-            Debug.Log(gameObject.name + "は" + currentItem.GetKanjiName() + "を使って" + currentTarget.name + "のMPを" + recoveryPoint + "回復した。");
+            battleManager.ShowMessage(currentTarget.name + "のMPを" + recoveryPoint + "回復した。");
         }
         else if (currentItem.GetItemType() == Item.Type.ParalyzeRecovery)
         {
             targetBaseStatus.SetParalyze(false);
-            Debug.Log(gameObject.name + "は" + currentItem.GetKanjiName() + "を使って" + currentTarget.name + "の麻痺を消した。");
+            battleManager.ShowMessage(currentTarget.name + "の麻痺を消した。");
         }
         else if (currentItem.GetItemType() == Item.Type.PoisonRecovery)
         {
             targetBaseStatus.SetPoisonState(false);
-            Debug.Log(gameObject.name + "は" + currentItem.GetKanjiName() + "を使って" + currentTarget.name + "の毒を消した。");
+            battleManager.ShowMessage(currentTarget.name + "の毒を消した。");
         }
         else if (currentItem.GetItemType() == Item.Type.SilentRecovery)
         {
             targetBaseStatus.SetSilence(false);
-            Debug.Log(gameObject.name + "は" + currentItem.GetKanjiName() + "を使って" + currentTarget.name + "の沈黙を消した。");
+            battleManager.ShowMessage(currentTarget.name + "の沈黙を消した。");
         }
 
         //　アイテム数が0になったらItemDictionaryからそのアイテムを削除
@@ -391,6 +397,7 @@ public class CharacterBattle : MonoBehaviour
     //　死んだときに実行する処理
     public void Dead()
     {
+        battleManager.ShowMessage(gameObject.name + "は倒れた。");
         battleManager.DeleteAllCharacterInBattleList(this.gameObject);
         if (GetCharacterStatus() as AllyStatus != null)
         {
@@ -415,7 +422,7 @@ public class CharacterBattle : MonoBehaviour
                 numOfTurnsSinceIncreasePower = 0;
                 SetAuxiliaryPower(GetAuxiliaryPower() / increasePowerPoint);
                 SetIsIncreasePower(false);
-                Debug.Log(gameObject.name + "の攻撃力アップの効果が消えた");
+                battleManager.ShowMessage(gameObject.name + "の攻撃力アップの効果が消えた");
             }
         }
     }
@@ -430,7 +437,7 @@ public class CharacterBattle : MonoBehaviour
                 numOfTurnsSinceIncreaseStrikingStrength = 0;
                 SetAuxiliaryStrikingStrength(GetAuxiliaryStrikingStrength() / increaseStrikingStrengthPoint);
                 SetIsIncreaseStrikingStrength(false);
-                Debug.Log(gameObject.name + "の防御力アップの効果が消えた");
+                battleManager.ShowMessage(gameObject.name + "の防御力アップの効果が消えた");
             }
         }
     }

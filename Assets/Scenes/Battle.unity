@@ -3284,6 +3284,8 @@ MonoBehaviour:
   magicOrItemPanel: {fileID: 0}
   battleItemPanelButton: {fileID: 0}
   battleMagicPanelButton: {fileID: 0}
+  messagePanel: {fileID: 0}
+  battleUI: {fileID: 0}
 --- !u!4 &1229388526
 Transform:
   m_ObjectHideFlags: 0
