@@ -3464,6 +3464,7 @@ GameObject:
   - component: {fileID: 1035356649}
   - component: {fileID: 1035356648}
   - component: {fileID: 1035356647}
+  - component: {fileID: 1035356650}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3536,6 +3537,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1035356650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035356646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 131a15d0d33834324a37f1c1a59df2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BGMAfterTheBattle: {fileID: 0}
 --- !u!1 &1046500461
 GameObject:
   m_ObjectHideFlags: 0
@@ -3834,11 +3848,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToDisplay: 3
-  resultPanel: {fileID: 0}
-  resultText: {fileID: 0}
-  partyStatus: {fileID: 0}
+  resultPanel: {fileID: 963435568}
+  resultText: {fileID: 783723786}
+  partyStatus: {fileID: 11400000, guid: dbdd854e4099e40ed9ab2b496918da1b, type: 2}
   scrollValue: 50
-  musicManager: {fileID: 0}
+  musicManager: {fileID: 1035356650}
 --- !u!1 &1244699911
 GameObject:
   m_ObjectHideFlags: 0

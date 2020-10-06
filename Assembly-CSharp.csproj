@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BaseVillager.cs" />
     <Compile Include="Assets\Scripts\Battle\BaseHeroAttack.cs" />
     <Compile Include="Assets\Scripts\Battle\BaseMonsterAttack.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleCommandPanelButton.cs" />
@@ -78,6 +79,8 @@
     <Compile Include="Assets\Scripts\Command\BaseCommand.cs" />
     <Compile Include="Assets\Scripts\Command\Command.cs" />
     <Compile Include="Assets\Scripts\Command\IdleCommand.cs" />
+    <Compile Include="Assets\Scripts\Conversation.cs" />
+    <Compile Include="Assets\Scripts\ConversationScope.cs" />
     <Compile Include="Assets\Scripts\Item\Item.cs" />
     <Compile Include="Assets\Scripts\Item\ItemDIctionary.cs" />
     <Compile Include="Assets\Scripts\Item\ItemPanelButton.cs" />
@@ -97,6 +100,7 @@
     <Compile Include="Assets\Scripts\Status\LevelUpData.cs" />
     <Compile Include="Assets\Scripts\Status\LevelUpDictionary.cs" />
     <Compile Include="Assets\Scripts\Status\PartyStatus.cs" />
+    <Compile Include="Assets\Scripts\Talk.cs" />
     <Compile Include="Assets\SerializableDictionary\Example\SerializableDictionaryExample.cs" />
     <Compile Include="Assets\SerializableDictionary\Example\UserSerializableDictionaries.cs" />
     <Compile Include="Assets\SerializableDictionary\SerializableDictionary.cs" />
