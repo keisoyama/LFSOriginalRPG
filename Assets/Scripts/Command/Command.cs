@@ -571,12 +571,8 @@ if (EventSystem.current.currentSelectedGameObject == null) {
     public void SelectItem(AllyStatus allyStatus, Item item)
     {
         //　アイテムの種類に応じて出来る項目を変更する
-        if (item.GetItemType() == Item.Type.ArmorAll
-            || item.GetItemType() == Item.Type.ArmorUnityChan
-            || item.GetItemType() == Item.Type.ArmorYuji
-            || item.GetItemType() == Item.Type.WeaponAll
-            || item.GetItemType() == Item.Type.WeaponUnityChan
-            || item.GetItemType() == Item.Type.WeaponYuji)
+        if (item.GetItemType() == Item.Type.Armor
+            || item.GetItemType() == Item.Type.Weapon)
         {
 
             var itemMenuButtonIns = Instantiate<GameObject>(useItemPanelButtonPrefab, useItemPanel.transform);
@@ -846,8 +842,7 @@ if (EventSystem.current.currentSelectedGameObject == null) {
         //　キャラクター毎に装備出来る武器や鎧かどうかを調べ装備を切り替える
         if (allyStatus.GetCharacterName() == "ユニティちゃん")
         {
-            if (item.GetItemType() == Item.Type.ArmorAll
-                || item.GetItemType() == Item.Type.ArmorUnityChan)
+            if (item.GetItemType() == Item.Type.Armor)
             {
                 var equipArmorButton = itemPanelButtonList.Find(itemPanelButton => itemPanelButton.transform.Find("ItemName").GetComponent<Text>().text == item.GetKanjiName());
                 equipArmorButton.transform.Find("Equip").GetComponent<Text>().text = "E";
@@ -860,47 +855,11 @@ if (EventSystem.current.currentSelectedGameObject == null) {
                 allyStatus.SetEquipArmor(item);
                 useItemInformationPanel.GetComponentInChildren<Text>().text = allyStatus.GetCharacterName() + "は" + item.GetKanjiName() + "を装備しました。";
             }
-            else if (item.GetItemType() == Item.Type.WeaponAll
-              || item.GetItemType() == Item.Type.WeaponUnityChan)
+            else if (item.GetItemType() == Item.Type.Weapon)
             {
                 var equipWeaponButton = itemPanelButtonList.Find(itemPanelButton => itemPanelButton.transform.Find("ItemName").GetComponent<Text>().text == item.GetKanjiName());
                 equipWeaponButton.transform.Find("Equip").GetComponent<Text>().text = "E";
                 //　装備している武器があればItemPanelでEquipのEを外す
-                if (allyStatus.GetEquipWeapon() != null)
-                {
-                    equipWeaponButton = itemPanelButtonList.Find(itemPanelButton => itemPanelButton.transform.Find("ItemName").GetComponent<Text>().text == allyStatus.GetEquipWeapon().GetKanjiName());
-                    equipWeaponButton.transform.Find("Equip").GetComponent<Text>().text = "";
-                }
-                allyStatus.SetEquipWeapon(item);
-                useItemInformationPanel.GetComponentInChildren<Text>().text = allyStatus.GetCharacterName() + "は" + item.GetKanjiName() + "を装備しました。";
-            }
-            else
-            {
-                useItemInformationPanel.GetComponentInChildren<Text>().text = allyStatus.GetCharacterName() + "は" + item.GetKanjiName() + "を装備出来ません。";
-            }
-        }
-        else if (allyStatus.GetCharacterName() == "大鳥ゆうじ")
-        {
-            if (item.GetItemType() == Item.Type.ArmorAll
-                || item.GetItemType() == Item.Type.ArmorYuji)
-            {
-                var equipArmorButton = itemPanelButtonList.Find(itemPanelButton => itemPanelButton.transform.Find("ItemName").GetComponent<Text>().text == item.GetKanjiName());
-                equipArmorButton.transform.Find("Equip").GetComponent<Text>().text = "E";
-
-                if (allyStatus.GetEquipArmor() != null)
-                {
-                    equipArmorButton = itemPanelButtonList.Find(itemPanelButton => itemPanelButton.transform.Find("ItemName").GetComponent<Text>().text == allyStatus.GetEquipArmor().GetKanjiName());
-                    equipArmorButton.transform.Find("Equip").GetComponent<Text>().text = "";
-                }
-                allyStatus.SetEquipArmor(item);
-                useItemInformationPanel.GetComponentInChildren<Text>().text = allyStatus.GetCharacterName() + "は" + item.GetKanjiName() + "を装備しました。";
-            }
-            else if (item.GetItemType() == Item.Type.WeaponAll
-              || item.GetItemType() == Item.Type.WeaponYuji)
-            {
-                var equipWeaponButton = itemPanelButtonList.Find(itemPanelButton => itemPanelButton.transform.Find("ItemName").GetComponent<Text>().text == item.GetKanjiName());
-                equipWeaponButton.transform.Find("Equip").GetComponent<Text>().text = "E";
-
                 if (allyStatus.GetEquipWeapon() != null)
                 {
                     equipWeaponButton = itemPanelButtonList.Find(itemPanelButton => itemPanelButton.transform.Find("ItemName").GetComponent<Text>().text == allyStatus.GetEquipWeapon().GetKanjiName());
@@ -937,17 +896,13 @@ if (EventSystem.current.currentSelectedGameObject == null) {
     public void RemoveEquip(AllyStatus allyStatus, Item item)
     {
         //　アイテムの種類に応じて装備を外す
-        if (item.GetItemType() == Item.Type.ArmorAll
-            || item.GetItemType() == Item.Type.ArmorUnityChan
-            || item.GetItemType() == Item.Type.ArmorYuji)
+        if (item.GetItemType() == Item.Type.Armor)
         {
             var equipArmorButton = itemPanelButtonList.Find(itemPanelButton => itemPanelButton.transform.Find("ItemName").GetComponent<Text>().text == item.GetKanjiName());
             equipArmorButton.transform.Find("Equip").GetComponent<Text>().text = "";
             allyStatus.SetEquipArmor(null);
         }
-        else if (item.GetItemType() == Item.Type.WeaponAll
-          || item.GetItemType() == Item.Type.WeaponUnityChan
-          || item.GetItemType() == Item.Type.WeaponYuji)
+        else if (item.GetItemType() == Item.Type.Weapon)
         {
             var equipArmorButton = itemPanelButtonList.Find(itemPanelButton => itemPanelButton.transform.Find("ItemName").GetComponent<Text>().text == item.GetKanjiName());
             equipArmorButton.transform.Find("Equip").GetComponent<Text>().text = "";

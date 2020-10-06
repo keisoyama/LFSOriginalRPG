@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 126647d58470a4d5291bf35775331e89, type: 3}
   m_Name: IncreaseDefenceMagic
   m_EditorClassIdentifier: 
-  skillType: 9
+  skillType: 6
   kanjiName: "\u9632\u5FA1\u529B\u30A2\u30C3\u30D7\u9B54\u6CD5"
   hiraganaName: "\u307C\u3046\u304E\u3087\u308A\u3087\u304F\u3042\u3063\u3077\u307E\u307B\u3046"
   information: "\u9632\u5FA1\u529B\u3092\u4E0A\u3052\u308B\u9B54\u6CD5"

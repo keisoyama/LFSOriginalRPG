@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+
 public class BaseVillager : MonoBehaviour
 {
+
     public enum State
     {
         Wait,

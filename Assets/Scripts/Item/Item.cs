@@ -14,12 +14,8 @@ public class Item : ScriptableObject
         PoisonRecovery,
         ParalyzeRecovery,
         SilentRecovery,
-        WeaponAll,
-        WeaponUnityChan,
-        WeaponYuji,
-        ArmorAll,
-        ArmorUnityChan,
-        ArmorYuji,
+        Weapon,
+        Armor,
         Valuables
     }
 

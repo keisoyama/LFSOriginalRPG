@@ -71,8 +71,9 @@ public class BaseCommand : MonoBehaviour
         {
             
         }
-
         
+
+
 
         //　コマンドUIの表示・非表示の切り替え
         if (Input.GetKeyDown(KeyCode.A))
