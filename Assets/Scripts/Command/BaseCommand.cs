@@ -13,10 +13,11 @@ public class BaseCommand : MonoBehaviour
     [SerializeField]
     private float runSpeed = 4f;
 
-    bool right;
-    bool left;
-    bool up;
-    bool down;
+    //それぞれ対応しているボタンが押されているかどうか
+    private bool right;
+    private bool left;
+    private bool up;
+    private bool down;
 
     public enum State
     {
@@ -32,9 +33,6 @@ public class BaseCommand : MonoBehaviour
     private Talk talk;
 
 
-    //　コマンド用UI
-    [SerializeField]
-    private GameObject commandUI = null;
 
 
     // Start is called before the first frame update
@@ -71,26 +69,6 @@ public class BaseCommand : MonoBehaviour
         {
             
         }
-        
-
-
-
-        //　コマンドUIの表示・非表示の切り替え
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            //　コマンド
-            if (!commandUI.activeSelf)
-            {
-                //　勇者をコマンド状態にする
-            }
-            else
-            {
-                ExitCommand();
-            }
-            //　コマンドUIのオン・オフ
-            commandUI.SetActive(!commandUI.activeSelf);
-        }
-
     }
 
     public void TalikingButtonPushed()
@@ -101,11 +79,6 @@ public class BaseCommand : MonoBehaviour
         }
     }
 
-    //　CommandScriptから呼び出すコマンド画面の終了
-    public void ExitCommand()
-    {
-        EventSystem.current.SetSelectedGameObject(null);
-    }
 
     //　状態変更と初期設定
     public void SetState(State state)

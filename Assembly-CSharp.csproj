@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\Command\BaseCommand.cs" />
     <Compile Include="Assets\Scripts\Command\Command.cs" />
     <Compile Include="Assets\Scripts\Command\IdleCommand.cs" />
+    <Compile Include="Assets\Scripts\Command\YusyaCommand.cs" />
     <Compile Include="Assets\Scripts\Conversation\BaseVillager.cs" />
     <Compile Include="Assets\Scripts\Conversation\Conversation.cs" />
     <Compile Include="Assets\Scripts\Conversation\ConversationScope.cs" />

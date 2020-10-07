@@ -20,6 +20,8 @@ public class LoadSceneManager : MonoBehaviour
     [SerializeField]
     private float fadeSpeed = 5f;
 
+    private bool isTransition;
+
     private void Awake()
     {
         // LoadSceneMangerは常に一つだけにする
@@ -38,6 +40,7 @@ public class LoadSceneManager : MonoBehaviour
     {
         sceneMovementData.SetSceneType(scene);
         StartCoroutine(FadeAndLoadScene(scene));
+        isTransition = true;
     }
     //　フェードをした後にシーン読み込み
     IEnumerator FadeAndLoadScene(SceneMovementData.SceneType scene)
@@ -109,4 +112,10 @@ public class LoadSceneManager : MonoBehaviour
             yield return null;
         }
     }
+
+    public bool IsTransition()
+    {
+        return isTransition;
+    }
+
 }

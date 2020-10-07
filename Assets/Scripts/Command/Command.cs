@@ -26,7 +26,7 @@ public class Command : MonoBehaviour
 
     private CommandMode currentCommand;
     //　ユニティちゃんコマンドスクリプト
-    private BaseCommand baseCommand;
+    private YusyaCommand yusyaCommand;
     //　最初に選択するButtonのTransform
     private GameObject firstSelectButton;
 
@@ -96,10 +96,12 @@ public class Command : MonoBehaviour
     //　アイテムボタン一覧
     private List<GameObject> itemPanelButtonList = new List<GameObject>();
 
+    private bool isCancelButtonPushed;
+
     void Awake()
     {
         //　コマンド画面を開く処理をしているUnityChanCommandScriptを取得
-        baseCommand = GameObject.FindWithTag("Player").GetComponent<BaseCommand>();
+        yusyaCommand = GameObject.FindWithTag("Player").GetComponent<YusyaCommand>();
         //　現在のコマンドを初期化
         currentCommand = CommandMode.CommandPanel;
         //　階層を辿ってを取得
@@ -187,12 +189,14 @@ public class Command : MonoBehaviour
     {
 
         //　キャンセルボタンを押した時の処理
-        if (Input.GetKeyDown(KeyCode.S))
+        if (isCancelButtonPushed)
         {
+            isCancelButtonPushed = false;
+
             //　コマンド選択画面時
             if (currentCommand == CommandMode.CommandPanel)
             {
-                baseCommand.ExitCommand();
+                //baseCommand.ExitCommand();
                 gameObject.SetActive(false);
                 //　ステータスキャラクター選択またはステータス表示時
             }
@@ -925,5 +929,10 @@ if (EventSystem.current.currentSelectedGameObject == null) {
 
         currentCommand = CommandMode.UseItemPanelToItemPanel;
         Input.ResetInputAxes();
+    }
+
+    public void CancelButtonPushed()
+    {
+        isCancelButtonPushed = true;
     }
 }
