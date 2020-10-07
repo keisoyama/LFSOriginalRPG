@@ -98,6 +98,9 @@ public class Command : MonoBehaviour
 
     private bool isCancelButtonPushed;
 
+    [SerializeField]
+    private AllyStatus yusyaStatus = null;
+
     void Awake()
     {
         //　コマンド画面を開く処理をしているUnityChanCommandScriptを取得
@@ -285,10 +288,7 @@ public class Command : MonoBehaviour
             //　アイテムを装備、装備を外す情報表示後の処理
             if (currentCommand == CommandMode.UseItemPanelToItemPanel)
             {
-                if (Input.anyKeyDown
-                    || !Mathf.Approximately(Input.GetAxis("Horizontal"), 0f)
-                    || !Mathf.Approximately(Input.GetAxis("Vertical"), 0f)
-                    )
+                if (Input.GetTouch(0).phase == TouchPhase.Began)
                 {
                     currentCommand = CommandMode.ItemPanel;
                     useItemInformationPanel.SetActive(false);
@@ -302,10 +302,7 @@ public class Command : MonoBehaviour
             }
             else if (currentCommand == CommandMode.UseItemSelectCharacterPanelToUseItemPanel)
             {
-                if (Input.anyKeyDown
-                    || !Mathf.Approximately(Input.GetAxis("Horizontal"), 0f)
-                    || !Mathf.Approximately(Input.GetAxis("Vertical"), 0f)
-                    )
+                if (Input.GetTouch(0).phase == TouchPhase.Began)
                 {
                     currentCommand = CommandMode.UseItemPanel;
                     useItemInformationPanel.SetActive(false);
@@ -318,10 +315,7 @@ public class Command : MonoBehaviour
             }
             else if (currentCommand == CommandMode.UseItemPanelToUseItemPanel)
             {
-                if (Input.anyKeyDown
-                    || !Mathf.Approximately(Input.GetAxis("Horizontal"), 0f)
-                    || !Mathf.Approximately(Input.GetAxis("Vertical"), 0f)
-                    )
+                if (Input.GetTouch(0).phase == TouchPhase.Began)
                 {
                     currentCommand = CommandMode.UseItemPanel;
                     useItemInformationPanel.SetActive(false);
@@ -332,10 +326,7 @@ public class Command : MonoBehaviour
             }
             else if (currentCommand == CommandMode.NoItemPassed)
             {
-                if (Input.anyKeyDown
-                    || !Mathf.Approximately(Input.GetAxis("Horizontal"), 0f)
-                    || !Mathf.Approximately(Input.GetAxis("Vertical"), 0f)
-                    )
+                if (Input.GetTouch(0).phase == TouchPhase.Began)
                 {
                     currentCommand = CommandMode.ItemPanel;
                     useItemInformationPanel.SetActive(false);
@@ -411,13 +402,11 @@ if (EventSystem.current.currentSelectedGameObject == null) {
 
             GameObject characterButtonIns;
 
-            //　パーティメンバー分のボタンを作成
-            foreach (var member in partyStatus.GetAllyStatus())
-            {
+            
                 characterButtonIns = Instantiate<GameObject>(characterPanelButtonPrefab, selectCharacterPanel.transform);
-                characterButtonIns.GetComponentInChildren<Text>().text = member.GetCharacterName();
-                characterButtonIns.GetComponent<Button>().onClick.AddListener(() => CreateItemPanelButton(member));
-            }
+                characterButtonIns.GetComponentInChildren<Text>().text = "袋";
+                characterButtonIns.GetComponent<Button>().onClick.AddListener(() => CreateItemPanelButton(yusyaStatus));
+            
         }
         //　階層を一番最後に並べ替え
         selectCharacterPanel.transform.SetAsLastSibling();
@@ -630,7 +619,6 @@ if (EventSystem.current.currentSelectedGameObject == null) {
             EventSystem.current.SetSelectedGameObject(useItemPanel.transform.GetChild(0).gameObject);
             useItemPanelCanvasGroup.interactable = true;
             Input.ResetInputAxes();
-
         }
     }
 
