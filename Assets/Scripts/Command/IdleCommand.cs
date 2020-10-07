@@ -23,6 +23,9 @@ public class IdleCommandScript : MonoBehaviour
     //　SceneManager
     private LoadSceneManager sceneManager = null;
 
+    [SerializeField]
+    private BaseCommand baseCommand = null;
+
     private void Awake()
     {
         characterStatusPanel = transform.Find("CharacterStatusPanel").gameObject;
@@ -35,11 +38,19 @@ public class IdleCommandScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //　シーン遷移途中とユニティちゃんの状態によっては表示しない
+        if (sceneManager.IsTransition()
+            || baseCommand.GetState() == BaseCommand.State.Talk
+            || baseCommand.GetState() == BaseCommand.State.Command
+            )
+        {
+            elapsedTime = 0f;
+            characterStatusPanel.SetActive(false);
+            return;
+        }
+
         //　何らかのキーが押された時
-        if (Input.anyKeyDown
-        || !Mathf.Approximately(Input.GetAxis("Horizontal"), 0f)
-        || !Mathf.Approximately(Input.GetAxis("Vertical"), 0f)
-        )
+        if (Input.GetTouch(0).phase == TouchPhase.Began)
         {
 
             elapsedTime = 0f;
