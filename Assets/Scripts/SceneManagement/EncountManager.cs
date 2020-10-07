@@ -18,7 +18,7 @@ public class EncountManager : MonoBehaviour
     [SerializeField]
     private float destinationTime;
     //　ユニティちゃん
-    private Transform YusyaObjct;
+    private Transform yusyaObjct;
     //　ユニティちゃんスクリプト
 
     //　戦闘データ
@@ -31,7 +31,6 @@ public class EncountManager : MonoBehaviour
     [SerializeField]
     private SceneMovementData sceneMovementData = null;
 
-    [SerializeField]
     private BaseCommand baseCommand = null;
 
 
@@ -40,7 +39,8 @@ public class EncountManager : MonoBehaviour
     {
         sceneManager = GameObject.Find("SceneManager").GetComponent<LoadSceneManager>();
         SetDestinationTime();
-        YusyaObjct = GameObject.FindWithTag("Player").transform;
+        yusyaObjct = GameObject.FindWithTag("Player").transform;
+        baseCommand = yusyaObjct.GetComponent<BaseCommand>();
     }
 
     // Update is called once per frame
@@ -48,6 +48,13 @@ public class EncountManager : MonoBehaviour
     {
         //　移動していない時は計測しない 
         if (!baseCommand.IsMoving)
+        {
+            return;
+        }
+        //　ユニティちゃんが何らかの行動をしていたら計測しない
+        if (baseCommand.GetState() == BaseCommand.State.Talk
+            || baseCommand.GetState() == BaseCommand.State.Command
+            )
         {
             return;
         }
@@ -71,8 +78,8 @@ public class EncountManager : MonoBehaviour
             {
                 battleData.SetEnemyPartyStatus(enemyPartyStatusList.GetPartyMembersList().Find(enemyPartyStatus => enemyPartyStatus.GetPartyName() == "EnemyGroup4"));
             }
-            sceneMovementData.SetWorldMapPos(YusyaObjct.transform.position);
-            sceneMovementData.SetWorldMapRot(YusyaObjct.transform.rotation);
+            sceneMovementData.SetWorldMapPos(yusyaObjct.transform.position);
+            sceneMovementData.SetWorldMapRot(yusyaObjct.transform.rotation);
             sceneManager.GoToNextScene(SceneMovementData.SceneType.WorldMapToBattle);
             elapsedTime = 0f;
             SetDestinationTime();
