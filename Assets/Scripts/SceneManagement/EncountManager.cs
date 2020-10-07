@@ -31,6 +31,9 @@ public class EncountManager : MonoBehaviour
     [SerializeField]
     private SceneMovementData sceneMovementData = null;
 
+    [SerializeField]
+    private BaseCommand baseCommand = null;
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,10 +46,8 @@ public class EncountManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //　移動していない時は計測しない
-        if (Mathf.Approximately(Input.GetAxis("Horizontal"), 0f)
-            && Mathf.Approximately(Input.GetAxis("Vertical"), 0f)
-            )
+        //　移動していない時は計測しない 
+        if (!baseCommand.IsMoving)
         {
             return;
         }
