@@ -33,6 +33,7 @@ public class EncountManager : MonoBehaviour
 
     private BaseCommand baseCommand = null;
 
+    private bool isMoving; 
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +48,7 @@ public class EncountManager : MonoBehaviour
     void Update()
     {
         //　移動していない時は計測しない 
-        if (!baseCommand.IsMoving)
+        if (isMoving)
         {
             return;
         }
@@ -84,6 +85,11 @@ public class EncountManager : MonoBehaviour
             elapsedTime = 0f;
             SetDestinationTime();
         }
+    }
+
+    void PlayerIsMoving()
+    {
+        isMoving = !isMoving;
     }
 
     //　次に敵と遭遇する時間

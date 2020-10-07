@@ -1,10 +1,11 @@
 ﻿<Properties StartupConfiguration="{ED49F48B-6966-DA7A-4782-285E7B39E8A8}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Command/BaseCommand.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SceneManagement/LoadSceneManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/Command/Command.cs" Line="291" Column="64" />
-      <File FileName="Assets/Scripts/Command/IdleCommand.cs" Line="56" Column="30" />
-      <File FileName="Assets/Scripts/SceneManagement/EncountManager.cs" Line="49" Column="14" />
-      <File FileName="Assets/Scripts/Command/BaseCommand.cs" Line="21" Column="21" />
+      <File FileName="Assets/Scripts/SceneManagement/EncountManager.cs" Line="92" Column="30" />
+      <File FileName="Assets/Scripts/SceneManagement/SceneMovementData.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/SceneManagement/GoToOtherScene.cs" Line="17" Column="6" />
+      <File FileName="Assets/Scripts/SceneManagement/SceneLoadingPosition.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/SceneManagement/LoadSceneManager.cs" Line="46" Column="29" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

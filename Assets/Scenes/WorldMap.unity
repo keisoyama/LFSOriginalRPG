@@ -5549,7 +5549,6 @@ MonoBehaviour:
   battleData: {fileID: 0}
   enemyPartyStatusList: {fileID: 0}
   sceneMovementData: {fileID: 0}
-  baseCommand: {fileID: 1860431846}
 --- !u!1 &1451377354
 GameObject:
   m_ObjectHideFlags: 0

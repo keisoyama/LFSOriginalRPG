@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class BaseCommand : MonoBehaviour
-{
+{   
     //　キャラクターの速度
     private Vector3 velocity;
     //　キャラクターの走るスピード
@@ -18,15 +18,6 @@ public class BaseCommand : MonoBehaviour
     private bool left;
     private bool up;
     private bool down;
-    private bool isMoving;
-
-    public bool IsMoving
-    {
-        get
-        {
-            return isMoving;
-        }
-    }
 
     public enum State
     {
@@ -129,27 +120,23 @@ public class BaseCommand : MonoBehaviour
     {
         //      右ボタンを押している間
         right = !right;
-        isMoving = !isMoving;
     }
 
     public void LeftPushChange()
     {
         //      右ボタンを押している間
         left = !left;
-        isMoving = !isMoving;
     }
 
     public void UpPushChange()
     {
         //      右ボタンを押している間
         up = !up;
-        isMoving = !isMoving;
     }
 
     public void DownPushChange()
     {
         //      右ボタンを押している間
         down = !down;
-        isMoving = !isMoving;
     }
 }
