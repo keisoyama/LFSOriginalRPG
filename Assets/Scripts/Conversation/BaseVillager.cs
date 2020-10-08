@@ -13,7 +13,7 @@ public class BaseVillager : MonoBehaviour
         Walk,
         Talk
     }
-
+    
     State state;
 
     //　会話内容保持スクリプト

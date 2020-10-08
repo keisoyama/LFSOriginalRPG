@@ -761,7 +761,6 @@ public class BattleManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("MPが足りない！");
                 //　MPが足りない場合は直接攻撃を行う
                 characterBattleScript.ChooseAttackOptions(CharacterBattle.BattleState.DirectAttack, allyCharacterInBattleList[targetNum], characterStatus.GetSkillList().Find(skill => skill.GetSkillType() == Skill.Type.DirectAttack));
             }

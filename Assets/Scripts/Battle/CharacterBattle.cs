@@ -224,7 +224,7 @@ public class CharacterBattle : MonoBehaviour
             {
                 battleStatusScript.UpdateStatus(GetCharacterStatus(), BattleStatus.Status.MP, GetMp());
             }
-            Instantiate(((Magic)skill).GetSkillUserEffect(), transform.position, ((Magic)skill).GetSkillUserEffect().transform.rotation);
+            //Instantiate(((Magic)skill).GetSkillUserEffect(), transform.position, ((Magic)skill).GetSkillUserEffect().transform.rotation);
         }
         else if (selectOption == BattleState.UseHPRecoveryItem
           || selectOption == BattleState.UseMPRecoveryItem
@@ -253,8 +253,8 @@ public class CharacterBattle : MonoBehaviour
         {
             var castedTargetStatus = (AllyStatus)targetCharacterBattleScript.GetCharacterStatus();
             //　攻撃相手の通常の防御力＋相手のキャラの補助値
-            var targetDefencePower = castedTargetStatus.GetStrikingStrength() + (castedTargetStatus.GetEquipArmor()?.GetAmount() ?? 0) + targetCharacterBattleScript.GetAuxiliaryStrikingStrength();
-            damage = Mathf.Max(0, (baseStatus.GetPower() + auxiliaryPower) - targetDefencePower);
+            var targetDefencePower = castedTargetStatus.GetStrikingStrength() + (castedTargetStatus.GetEquipArmor()?.GetAmount() ?? 0);
+            damage = Mathf.Max(0, (baseStatus.GetPower() * auxiliaryPower) - targetDefencePower * targetCharacterBattleScript.GetAuxiliaryStrikingStrength());
             battleManager.ShowMessage(currentTarget.name + "は" + damage + "のダメージを受けた。");
             //　相手のステータスのHPをセット
             targetCharacterBattleScript.SetHp(targetCharacterBattleScript.GetHp() - damage);
@@ -265,8 +265,8 @@ public class CharacterBattle : MonoBehaviour
         {
             var castedTargetStatus = (EnemyStatus)targetCharacterBattleScript.GetCharacterStatus();
             //　攻撃相手の通常の防御力＋相手のキャラの補助値
-            var targetDefencePower = castedTargetStatus.GetStrikingStrength() + targetCharacterBattleScript.GetAuxiliaryStrikingStrength();
-            damage = Mathf.Max(0, (baseStatus.GetPower() + (((AllyStatus)baseStatus).GetEquipWeapon()?.GetAmount() ?? 0) + auxiliaryPower) - targetDefencePower);
+            var targetDefencePower = castedTargetStatus.GetStrikingStrength() * targetCharacterBattleScript.GetAuxiliaryStrikingStrength();
+            damage = Mathf.Max(0, (baseStatus.GetPower() + (((AllyStatus)baseStatus).GetEquipWeapon()?.GetAmount() ?? 0) * auxiliaryPower) - targetDefencePower);
             battleManager.ShowMessage(currentTarget.name + "は" + damage + "のダメージを受けた。");
             //　敵のステータスのHPをセット
             targetCharacterBattleScript.SetHp(targetCharacterBattleScript.GetHp() - damage);
@@ -287,7 +287,6 @@ public class CharacterBattle : MonoBehaviour
         if (targetBaseStatus as AllyStatus != null)
         {
             var castedTargetStatus = (AllyStatus)targetCharacterBattleScript.GetCharacterStatus();
-            var targetDefencePower = castedTargetStatus.GetStrikingStrength() + (castedTargetStatus.GetEquipArmor()?.GetAmount() ?? 0);
             damage = Mathf.Max(0, ((Magic)currentSkill).GetMagicPower() );
             battleManager.ShowMessage(currentTarget.name + "は" + damage + "のダメージを受けた。");
             ////　相手のステータスのHPをセット
@@ -298,8 +297,7 @@ public class CharacterBattle : MonoBehaviour
         else if (targetBaseStatus as EnemyStatus != null)
         {
             var castedTargetStatus = (EnemyStatus)targetCharacterBattleScript.GetCharacterStatus();
-            var targetDefencePower = castedTargetStatus.GetStrikingStrength();
-            damage = Mathf.Max(0, ((Magic)currentSkill).GetMagicPower() - targetDefencePower);
+            damage = Mathf.Max(0, ((Magic)currentSkill).GetMagicPower());
             battleManager.ShowMessage(currentTarget.name + "は" + damage + "のダメージを受けた。");
             //　相手のステータスのHPをセット
             targetCharacterBattleScript.SetHp(targetCharacterBattleScript.GetHp() - damage);
