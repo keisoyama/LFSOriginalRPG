@@ -90,6 +90,9 @@ public class BattleManager : MonoBehaviour
     [SerializeField]
     private BattleResult battleResult;
 
+    //キャンセルボタンが押されたかどうか
+    private bool isCancelButtonPushed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -227,7 +230,7 @@ public class BattleManager : MonoBehaviour
             else
             {
                 //　キャンセルボタンを押した時の処理
-                if (Input.GetKeyDown(KeyCode.A))
+                if (isCancelButtonPushed)
                 {
                     if (currentCommand == CommandMode.SelectDirectAttacker)
                     {
@@ -865,5 +868,10 @@ public class BattleManager : MonoBehaviour
         }
         messagePanelIns = Instantiate<GameObject>(messagePanel, battleUI);
         messagePanelIns.transform.Find("Text").GetComponent<Text>().text = message;
+    }
+
+    public void IsCancelButtonPushed()
+    {
+        isCancelButtonPushed = true;
     }
 }

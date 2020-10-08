@@ -5546,9 +5546,10 @@ MonoBehaviour:
   encountMaxTime: 30
   elapsedTime: 0
   destinationTime: 0
-  battleData: {fileID: 0}
-  enemyPartyStatusList: {fileID: 0}
-  sceneMovementData: {fileID: 0}
+  battleData: {fileID: 11400000, guid: 02e03fc50d7a944d3afe99113623487b, type: 2}
+  enemyPartyStatusList: {fileID: 11400000, guid: b991bead1916a40f3ad7bc9547484254,
+    type: 2}
+  sceneMovementData: {fileID: 11400000, guid: bad9a92749d0f446a9afc5844607b0cc, type: 2}
 --- !u!1 &1451377354
 GameObject:
   m_ObjectHideFlags: 0
