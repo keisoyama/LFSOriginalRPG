@@ -697,7 +697,7 @@ public class BattleManager : MonoBehaviour
         {
             if (!targetCharacterBattleScript.IsSilence())
             {
-                ShowMessage(targetCharacter.name + "は毒状態ではありません。");
+                ShowMessage(targetCharacter.name + "は沈黙状態ではありません。");
                 return;
             }
             battleState = CharacterBattle.BattleState.UsePoisonRecoveryItem;
@@ -716,7 +716,6 @@ public class BattleManager : MonoBehaviour
         var randomValue = Random.value;
         if (0f <= randomValue && randomValue <= 0.8f)
         {
-            //Debug.Log("逃げるのに成功した。");
             ShowMessage("逃げるのに成功した。");
             commandPanel.gameObject.SetActive(false);
             battleIsOver = true;
@@ -725,7 +724,6 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            //Debug.Log("逃げるのに失敗した。");
             ShowMessage("逃げるのに失敗した。");
             commandPanel.gameObject.SetActive(false);
             ChangeNextChara();
@@ -766,6 +764,7 @@ public class BattleManager : MonoBehaviour
             else
             {
                 //　MPが足りない場合は直接攻撃を行う
+                ShowMessage("MPが足りない!");
                 characterBattleScript.ChooseAttackOptions(CharacterBattle.BattleState.DirectAttack, allyCharacterInBattleList[targetNum], characterStatus.GetSkillList().Find(skill => skill.GetSkillType() == Skill.Type.DirectAttack));
             }
         }
@@ -779,7 +778,7 @@ public class BattleManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("MPが足りない！");
+                ShowMessage("MPが足りない!");
                 var targetNum = (int)(Random.value * allyCharacterInBattleList.Count);
                 //　MPが足りない場合は直接攻撃を行う
                 characterBattleScript.ChooseAttackOptions(CharacterBattle.BattleState.DirectAttack, allyCharacterInBattleList[targetNum], characterStatus.GetSkillList().Find(skill => skill.GetSkillType() == Skill.Type.DirectAttack));
@@ -813,7 +812,6 @@ public class BattleManager : MonoBehaviour
         enemyCharacterInBattleList.Remove(deleteObj);
         if (enemyCharacterInBattleList.Count == 0)
         {
-            //Debug.Log("敵が全滅");
             ShowMessage("敵が全滅");
             battleIsOver = true;
             CharacterBattle characterBattleScript;
@@ -840,7 +838,6 @@ public class BattleManager : MonoBehaviour
         allyCharacterInBattleList.Remove(deleteObj);
         if (allyCharacterInBattleList.Count == 0)
         {
-            //Debug.Log("味方が全滅");
             ShowMessage("味方が全滅");
             battleIsOver = true;
             CharacterBattle characterBattleScript;

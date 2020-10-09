@@ -1,12 +1,13 @@
 ﻿<Properties StartupConfiguration="{ED49F48B-6966-DA7A-4782-285E7B39E8A8}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Status/AllyStatus.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Battle/BattleResult.cs">
     <Files>
       <File FileName="Assets/Scripts/Battle/BattleStatus.cs" Line="52" Column="17" />
-      <File FileName="Assets/Scripts/Battle/BattleManager.cs" Line="589" Column="112" />
-      <File FileName="Assets/Scripts/Status/BaseStatus.cs" Line="69" Column="24" />
-      <File FileName="Assets/Scripts/Battle/CharacterBattle.cs" Line="13" Column="13" />
+      <File FileName="Assets/Scripts/Battle/BattleManager.cs" Line="815" Column="1" />
+      <File FileName="Assets/Scripts/Status/BaseStatus.cs" Line="82" Column="26" />
+      <File FileName="Assets/Scripts/Battle/CharacterBattle.cs" Line="357" Column="10" />
       <File FileName="Assets/Scripts/Battle/BattleCommandPanelButton.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Status/AllyStatus.cs" Line="69" Column="22" />
+      <File FileName="Assets/Scripts/Battle/BattleResult.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

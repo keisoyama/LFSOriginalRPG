@@ -49,8 +49,8 @@ public class BattleResult : MonoBehaviour
         {
             return;
         }
-        //　SubmitやActionやFire1ボタンを押したらワールドマップに戻る
-        if (Input.GetButtonDown("Submit") || Input.GetButtonDown("Action") || Input.GetButtonDown("Fire1"))
+        //　タップしたらワールドマップに戻る
+        if (Input.GetTouch(0).phase == TouchPhase.Began)
         {
             if (won || ranAway)
             {
