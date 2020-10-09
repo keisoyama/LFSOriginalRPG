@@ -93,6 +93,8 @@ public class BattleManager : MonoBehaviour
     //キャンセルボタンが押されたかどうか
     private bool isCancelButtonPushed;
 
+    private GameObject yusyaObjct;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -158,6 +160,8 @@ public class BattleManager : MonoBehaviour
         waitTime = firstWaitingTime;
         //　ランダム値のシードの設定
         Random.InitState((int)Time.time);
+
+        yusyaObjct = GameObject.Find("勇者");
     }
 
     // Update is called once per frame
@@ -586,7 +590,7 @@ public class BattleManager : MonoBehaviour
     public void SelectItem(GameObject character)
     {
 
-        var itemDictionary = ((AllyStatus)character.GetComponent<CharacterBattle>().GetCharacterStatus()).GetItemDictionary();
+        var itemDictionary = ((AllyStatus)yusyaObjct.GetComponent<CharacterBattle>().GetCharacterStatus()).GetItemDictionary();
 
         GameObject battleItemPanelButtonIns;
 
