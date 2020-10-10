@@ -21,7 +21,7 @@ MonoBehaviour:
   hp: 0
   maxMp: 50
   mp: 50
-  agility: 5
+  agility: 10
   power: 50
   strikingStrength: 30
   magicPower: 10

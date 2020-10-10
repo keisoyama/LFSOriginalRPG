@@ -154,10 +154,10 @@ public class BattleManager : MonoBehaviour
         //　現在の戦闘
         allCharacterInBattleList = allCharacterList.ToList<GameObject>();
         //　確認の為並べ替えたリストを表示
-        foreach (var character in allCharacterInBattleList)
+        /*foreach (var character in allCharacterInBattleList)
         {
             Debug.Log(character.GetComponent<CharacterBattle>().GetCharacterStatus().GetCharacterName() + " : " + character.GetComponent<CharacterBattle>().GetCharacterStatus().GetAgility());
-        }
+        }*/
         //　戦闘前の待ち時間を設定
         waitTime = firstWaitingTime;
         //　ランダム値のシードの設定
@@ -750,7 +750,9 @@ public class BattleManager : MonoBehaviour
 
         if (nowSkill.GetSkillType() == Skill.Type.DirectAttack)
         {
+            
             var targetNum = (int)(Random.value * allyCharacterInBattleList.Count);
+            Debug.Log(targetNum);
             //　攻撃相手のCharacterBattleScript
             characterBattleScript.ChooseAttackOptions(CharacterBattle.BattleState.DirectAttack, allyCharacterInBattleList[targetNum], nowSkill);
         }
