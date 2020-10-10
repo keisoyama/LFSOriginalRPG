@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c6f73d1ebb241fab37eb634fb30994, type: 3}
+  m_Name: BlonzeArmor
+  m_EditorClassIdentifier: 
+  itemType: 6
+  kanjiName: "\u9285\u306E\u93A7"
+  hiraganaName: "\u3069\u3046\u306E\u3088\u308D\u3044"
+  information: "\u5E73\u51E1\u306A\u9285\u306E\u93A7"
+  amount: 30

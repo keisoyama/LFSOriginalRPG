@@ -17,15 +17,15 @@ MonoBehaviour:
   isParalyzeState: 0
   isSilentState: 0
   level: 1
-  maxHp: 100
-  hp: 100
+  maxHp: 1000
+  hp: 0
   maxMp: 50
   mp: 50
   agility: 5
-  power: 10
-  strikingStrength: 10
+  power: 50
+  strikingStrength: 30
   magicPower: 10
-  strikingMagic: 10
+  strikingMagic: 30
   phsicalResistance: 0
   magicalResistance: 0
   fireResistance: 0

@@ -1,12 +1,13 @@
 ﻿<Properties StartupConfiguration="{ED49F48B-6966-DA7A-4782-285E7B39E8A8}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Status/PartyStatus.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SceneManagement/EncountManager.cs">
     <Files>
       <File FileName="Assets/Scripts/SceneManagement/SceneMovementData.cs" Line="32" Column="17" />
-      <File FileName="Assets/Scripts/Battle/BattleManager.cs" Line="109" Column="1" />
-      <File FileName="Assets/Scripts/Battle/BattleData.cs" Line="14" Column="41" />
-      <File FileName="Assets/Scripts/Battle/CharacterBattle.cs" Line="28" Column="31" />
-      <File FileName="Assets/Scripts/Battle/BattleStatus.cs" Line="15" Column="20" />
-      <File FileName="Assets/Scripts/Status/PartyStatus.cs" Line="9" Column="14" />
+      <File FileName="Assets/Scripts/Battle/BattleManager.cs" Line="365" Column="33" />
+      <File FileName="Assets/Scripts/Battle/BattleData.cs" />
+      <File FileName="Assets/Scripts/Battle/CharacterBattle.cs" />
+      <File FileName="Assets/Scripts/Battle/BattleStatus.cs" />
+      <File FileName="Assets/Scripts/Status/PartyStatus.cs" />
+      <File FileName="Assets/Scripts/SceneManagement/EncountManager.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

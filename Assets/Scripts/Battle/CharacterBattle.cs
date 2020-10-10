@@ -240,7 +240,7 @@ public class CharacterBattle : MonoBehaviour
     //　ターゲットエフェクトの表示
     public void ShowEffectOnTheTarget()
     {
-        Instantiate<GameObject>(currentSkill.GetSkillReceivingSideEffect(), currentTarget.transform.position, currentSkill.GetSkillReceivingSideEffect().transform.rotation);
+        //Instantiate<GameObject>(currentSkill.GetSkillReceivingSideEffect(), currentTarget.transform.position, currentSkill.GetSkillReceivingSideEffect().transform.rotation);
     }
 
     //物理攻撃のダメージ処理

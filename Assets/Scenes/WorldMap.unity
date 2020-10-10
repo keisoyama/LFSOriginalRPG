@@ -5050,7 +5050,7 @@ MonoBehaviour:
     type: 3}
   useItemPanelButtonPrefab: {fileID: 5946143876173579356, guid: 8b428582950cc4b998b6c1a2efb1b9c3,
     type: 3}
-  yusyaStatus: {fileID: 11400000, guid: 1811422968bd240bdb92f17e8be06d2c, type: 2}
+  yusyaStatus: {fileID: 0}
 --- !u!114 &1287385276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5685,8 +5685,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b27925ef8adaf4ea19f7721295aa3182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  encountMinTime: 3
-  encountMaxTime: 30
+  encountMinTime: 2
+  encountMaxTime: 5
   elapsedTime: 0
   destinationTime: 0
   battleData: {fileID: 11400000, guid: 02e03fc50d7a944d3afe99113623487b, type: 2}

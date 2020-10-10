@@ -67,6 +67,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField]
     private Transform magicOrItemPanel = null;
     //　魔法やアイテム選択パネルのContent
+    [SerializeField]
     private Transform magicOrItemPanelContent = null;
     //　BattleItemPanelButtonプレハブ
     [SerializeField]
@@ -98,7 +99,8 @@ public class BattleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ShowMessage("戦闘開始");
+
+            ShowMessage("戦闘開始");
 
         //　キャラクターインスタンスの親
         Transform charactersParent = new GameObject("Characters").transform;
