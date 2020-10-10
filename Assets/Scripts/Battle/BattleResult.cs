@@ -50,7 +50,7 @@ public class BattleResult : MonoBehaviour
             return;
         }
         //　タップしたらワールドマップに戻る
-        if (Input.GetTouch(0).phase == TouchPhase.Began)
+        if (Input.GetMouseButtonDown(0))
         {
             if (won || ranAway)
             {

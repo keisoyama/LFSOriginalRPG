@@ -288,7 +288,7 @@ public class Command : MonoBehaviour
             //　アイテムを装備、装備を外す情報表示後の処理
             if (currentCommand == CommandMode.UseItemPanelToItemPanel)
             {
-                if (Input.GetTouch(0).phase == TouchPhase.Began)
+                if (Input.GetMouseButtonDown(0))
                 {
                     currentCommand = CommandMode.ItemPanel;
                     useItemInformationPanel.SetActive(false);
@@ -302,7 +302,7 @@ public class Command : MonoBehaviour
             }
             else if (currentCommand == CommandMode.UseItemSelectCharacterPanelToUseItemPanel)
             {
-                if (Input.GetTouch(0).phase == TouchPhase.Began)
+                if (Input.GetMouseButtonDown(0))
                 {
                     currentCommand = CommandMode.UseItemPanel;
                     useItemInformationPanel.SetActive(false);
@@ -315,7 +315,7 @@ public class Command : MonoBehaviour
             }
             else if (currentCommand == CommandMode.UseItemPanelToUseItemPanel)
             {
-                if (Input.GetTouch(0).phase == TouchPhase.Began)
+                if (Input.GetMouseButtonDown(0))
                 {
                     currentCommand = CommandMode.UseItemPanel;
                     useItemInformationPanel.SetActive(false);
@@ -326,7 +326,7 @@ public class Command : MonoBehaviour
             }
             else if (currentCommand == CommandMode.NoItemPassed)
             {
-                if (Input.GetTouch(0).phase == TouchPhase.Began)
+                if (Input.GetMouseButtonDown(0))
                 {
                     currentCommand = CommandMode.ItemPanel;
                     useItemInformationPanel.SetActive(false);

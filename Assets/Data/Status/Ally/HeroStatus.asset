@@ -18,7 +18,7 @@ MonoBehaviour:
   isSilentState: 0
   level: 1
   maxHp: 1000
-  hp: 0
+  hp: 1000
   maxMp: 50
   mp: 50
   agility: 10

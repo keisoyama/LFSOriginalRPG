@@ -164,6 +164,8 @@ public class BattleManager : MonoBehaviour
         Random.InitState((int)Time.time);
 
         yusyaObjct = GameObject.Find("勇者");
+
+
     }
 
     // Update is called once per frame
