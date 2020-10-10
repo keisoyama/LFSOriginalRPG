@@ -322,7 +322,6 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("経過時間： " + elapsedTime);
             //　戦闘前の待機
             elapsedTime += Time.deltaTime;
             if (elapsedTime >= waitTime)

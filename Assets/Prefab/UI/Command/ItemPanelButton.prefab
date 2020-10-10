@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7800260749614119152}
   - component: {fileID: 7800260749614119153}
   - component: {fileID: 7800260749614119159}
+  - component: {fileID: 4248455539531043265}
   m_Layer: 5
   m_Name: ItemPanelButton
   m_TagString: Untagged
@@ -259,6 +260,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ed3fb35b11b14b62ad9b7a6c1da31e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4248455539531043265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7800260749614119166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70684fa1386ea491cabc5107d9ed3eb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7800260749654396023
