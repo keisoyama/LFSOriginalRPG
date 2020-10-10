@@ -2840,7 +2840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a394319390e1483a8bff83e95dd80e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneMovementData: {fileID: 0}
+  sceneMovementData: {fileID: 11400000, guid: bad9a92749d0f446a9afc5844607b0cc, type: 2}
   fadePrefab: {fileID: 5286803782978117680, guid: acbfa8dd5b2d849b7b0b988f452f25b8,
     type: 3}
   fadeSpeed: 5
@@ -3193,7 +3193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eb562dba2a34426aa261fe2698a348d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  commandUI: {fileID: 0}
+  commandUI: {fileID: 1692359318}
 --- !u!1 &1101924043
 GameObject:
   m_ObjectHideFlags: 0
@@ -6316,8 +6316,11 @@ MonoBehaviour:
   partyStatus: {fileID: 11400000, guid: dbdd854e4099e40ed9ab2b496918da1b, type: 2}
   characterPanelButtonPrefab: {fileID: 2975822624464295176, guid: dfc82784d4e10486f8b1b1f13492b265,
     type: 3}
-  itemPanelButtonPrefab: {fileID: 0}
-  useItemPanelButtonPrefab: {fileID: 0}
+  itemPanelButtonPrefab: {fileID: 7800260749614119166, guid: 893cd3986255f4f48b8a0d59c3510bf0,
+    type: 3}
+  useItemPanelButtonPrefab: {fileID: 7800260749614119166, guid: 893cd3986255f4f48b8a0d59c3510bf0,
+    type: 3}
+  yusyaStatus: {fileID: 11400000, guid: 1811422968bd240bdb92f17e8be06d2c, type: 2}
 --- !u!1 &1698931616
 GameObject:
   m_ObjectHideFlags: 0
@@ -7185,7 +7188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97e2b54c3cd8c465b9f597b5a6c9bc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: 1
+  scene: 2
 --- !u!224 &1927024275 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7800260749614119165, guid: 893cd3986255f4f48b8a0d59c3510bf0,

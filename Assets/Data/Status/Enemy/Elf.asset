@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bc58c57f63494cc4a1628a9235ab511, type: 3}
   m_Name: Elf
   m_EditorClassIdentifier: 
-  characterName: 
+  characterName: "\u30A8\u30EB\u30D5"
   isPoisonState: 0
   isParalyzeState: 0
   isSilentState: 0
@@ -33,6 +33,9 @@ MonoBehaviour:
   woodResistance: 0
   sunResistance: 0
   moonResistance: 0
+  skillList:
+  - {fileID: 11400000, guid: cd19cd47f9abb466abfc070463fcf0f7, type: 2}
+  - {fileID: 11400000, guid: d01ea2475b190418baabc3076cd30ea0, type: 2}
   gettingExperience: 10
   gettingMoney: 10
   dropItemDictionary:

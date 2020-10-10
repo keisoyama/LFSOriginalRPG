@@ -33,10 +33,15 @@ MonoBehaviour:
   woodResistance: 0
   sunResistance: 0
   moonResistance: 0
-  skillList: []
+  skillList:
+  - {fileID: 11400000, guid: cd19cd47f9abb466abfc070463fcf0f7, type: 2}
+  - {fileID: 11400000, guid: d33890c2e455147048605266611c8b69, type: 2}
+  - {fileID: 11400000, guid: 118611c45e72b42a09d44771e049de3a, type: 2}
+  - {fileID: 11400000, guid: 329193db07fc64397bf04fe6c05e692f, type: 2}
   earnedExperience: 0
   equipWeapon: {fileID: 0}
   equipArmor: {fileID: 0}
   itemDictionary:
     m_keys: []
     m_values: 
+  levelUpData: {fileID: 11400000, guid: 216ce74163ec04364ada52a5d4d1f1bc, type: 2}

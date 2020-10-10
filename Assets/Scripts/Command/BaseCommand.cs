@@ -11,7 +11,7 @@ public class BaseCommand : MonoBehaviour
     private Vector3 velocity;
     //　キャラクターの走るスピード
     [SerializeField]
-    private float runSpeed = 4f;
+    private float runSpeed = 0.1f;
 
     //それぞれ対応しているボタンが押されているかどうか
     private bool right;
@@ -62,12 +62,8 @@ public class BaseCommand : MonoBehaviour
                     }
                     else if (left)
                     {
-                        GoRight();
+                        GoLeft();
                     }
-        }
-        else if (state == State.Talk)
-        {
-            
         }
     }
 
@@ -98,12 +94,12 @@ public class BaseCommand : MonoBehaviour
 
     void GoUp()
     {
-        transform.position += new Vector3(0, 0, runSpeed);
+        transform.position += new Vector3(0, runSpeed, 0);
     }
 
     void GoDown()
     {
-        transform.position += new Vector3(0, 0, -runSpeed);
+        transform.position += new Vector3(0, -runSpeed, 0);
     }
 
     void GoRight()

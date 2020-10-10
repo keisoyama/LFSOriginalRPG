@@ -10,7 +10,7 @@ public class EncountManager : MonoBehaviour
     private float encountMinTime = 3f;
     //　敵と遭遇するランダム時間
     [SerializeField]
-    private float encountMaxTime = 30f;
+    private float encountMaxTime = 10f;
     //　経過時間
     [SerializeField]
     private float elapsedTime;
@@ -48,7 +48,7 @@ public class EncountManager : MonoBehaviour
     void Update()
     {
         //　移動していない時は計測しない 
-        if (isMoving)
+        if (!isMoving)
         {
             return;
         }
@@ -87,7 +87,7 @@ public class EncountManager : MonoBehaviour
         }
     }
 
-    void PlayerIsMoving()
+    public void IsPlayerMoving()
     {
         isMoving = !isMoving;
     }

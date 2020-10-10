@@ -28,7 +28,7 @@ public class LoadSceneManager : MonoBehaviour
         if (loadSceneManager == null)
         {
             loadSceneManager = this;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject); 
         }
         else
         {
