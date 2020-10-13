@@ -587,6 +587,7 @@ if (EventSystem.current.currentSelectedGameObject == null) {
         }
         else if (item.GetItemType() == Item.Type.ParalyzeRecovery
           || item.GetItemType() == Item.Type.PoisonRecovery
+          || item.GetItemType() == Item.Type.SilentRecovery
           || item.GetItemType() == Item.Type.HPRecovery
           || item.GetItemType() == Item.Type.MPRecovery
           )
