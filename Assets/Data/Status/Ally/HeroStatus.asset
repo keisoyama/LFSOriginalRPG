@@ -38,6 +38,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d33890c2e455147048605266611c8b69, type: 2}
   - {fileID: 11400000, guid: 118611c45e72b42a09d44771e049de3a, type: 2}
   - {fileID: 11400000, guid: 329193db07fc64397bf04fe6c05e692f, type: 2}
+  - {fileID: 11400000, guid: d01ea2475b190418baabc3076cd30ea0, type: 2}
   earnedExperience: 0
   equipWeapon: {fileID: 11400000, guid: 616a07e67696f4604a4820d79efa1da0, type: 2}
   equipArmor: {fileID: 11400000, guid: a15bcd30a5b9546a6811782ebdee6931, type: 2}
