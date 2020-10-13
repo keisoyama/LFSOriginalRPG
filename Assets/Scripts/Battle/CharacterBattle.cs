@@ -405,6 +405,8 @@ public class CharacterBattle : MonoBehaviour
         else if (GetCharacterStatus() as EnemyStatus != null)
         {
             battleManager.DeleteEnemyCharacterInBattleList(this.gameObject);
+            //ここに倒された時にgameobjectをfalseにしたい
+            battleManager.VanishEnemyObject(((EnemyStatus)GetCharacterStatus()).GetEnemyNumber());
         }
         isDead = true;
     }

@@ -148,6 +148,8 @@ public class BattleManager : MonoBehaviour
             enemyNameList.Add(characterName);
             enemyCharacterInBattleList.Add(ins);
             allCharacterList.Add(ins);
+            //ここにEnemyStatusのSetEnemyNumberにアクセスしたい
+            ((EnemyStatus)ins.GetComponent<CharacterBattle>().GetCharacterStatus()).SetEnemyNumber(i);
         }
         //　キャラクターリストをキャラクターの素早さの高い順に並べ替え
         allCharacterList = allCharacterList.OrderByDescending(character => character.GetComponent<CharacterBattle>().GetCharacterStatus().GetAgility()).ToList<GameObject>();
@@ -164,14 +166,11 @@ public class BattleManager : MonoBehaviour
         Random.InitState((int)Time.time);
 
         yusyaObjct = GameObject.Find("勇者");
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
         //　戦闘が終了していたらこれ以降何もしない
         if (battleIsOver)
         {
@@ -884,5 +883,10 @@ public class BattleManager : MonoBehaviour
     public void IsCancelButtonPushed()
     {
         isCancelButtonPushed = true;
+    }
+
+    public void VanishEnemyObject(int enemyNumber)
+    {
+        battleBasePosition.Find("EnemyPos" + enemyNumber).gameObject.SetActive(false);
     }
 }
