@@ -406,7 +406,7 @@ public class CharacterBattle : MonoBehaviour
         {
             battleManager.DeleteEnemyCharacterInBattleList(this.gameObject);
             //ここに倒された時にgameobjectをfalseにしたい
-            battleManager.VanishEnemyObject(((EnemyStatus)GetCharacterStatus()).GetEnemyNumber());
+            battleManager.VanishEnemyObject(((EnemyStatus)GetCharacterStatus()).GetEnemyName());
         }
         isDead = true;
     }

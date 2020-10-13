@@ -96,14 +96,16 @@ public class BattleManager : MonoBehaviour
 
     private GameObject yusyaObjct;
 
+    //　キャラクターインスタンスの親
+    Transform charactersParent;
+
     // Start is called before the first frame update
     void Start()
     {
 
             ShowMessage("戦闘開始");
-
         //　キャラクターインスタンスの親
-        Transform charactersParent = new GameObject("Characters").transform;
+        charactersParent = new GameObject("Characters").transform;
         //　キャラクターを配置するTransform
         Transform characterTransform;
         //　同じ名前の敵がいた場合の処理に使うリスト
@@ -148,8 +150,8 @@ public class BattleManager : MonoBehaviour
             enemyNameList.Add(characterName);
             enemyCharacterInBattleList.Add(ins);
             allCharacterList.Add(ins);
-            //ここにEnemyStatusのSetEnemyNumberにアクセスしたい
-            ((EnemyStatus)ins.GetComponent<CharacterBattle>().GetCharacterStatus()).SetEnemyNumber(i);
+            //EnemyStatusのSetEnemyNumberにアクセスしてる
+            ((EnemyStatus)ins.GetComponent<CharacterBattle>().GetCharacterStatus()).SetEnemyName(ins.name);
         }
         //　キャラクターリストをキャラクターの素早さの高い順に並べ替え
         allCharacterList = allCharacterList.OrderByDescending(character => character.GetComponent<CharacterBattle>().GetCharacterStatus().GetAgility()).ToList<GameObject>();
@@ -885,8 +887,8 @@ public class BattleManager : MonoBehaviour
         isCancelButtonPushed = true;
     }
 
-    public void VanishEnemyObject(int enemyNumber)
+    public void VanishEnemyObject(string enemyName)
     {
-        battleBasePosition.Find("EnemyPos" + enemyNumber).gameObject.SetActive(false);
+        charactersParent.Find(enemyName).gameObject.SetActive(false);
     }
 }

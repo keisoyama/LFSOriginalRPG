@@ -17,8 +17,8 @@ public class EnemyStatus : BaseStatus
     //　落とすアイテムと落とす確率（パーセンテージ表示）
     [SerializeField]
     private ItemDictionary dropItemDictionary = null;
-    //　
-    private int enemyNumber;
+    　
+    private string enemyName;
 
     public int GetGettingExperience()
     {
@@ -42,13 +42,13 @@ public class EnemyStatus : BaseStatus
         return dropItemDictionary[item];
     }
 
-    public int GetEnemyNumber()
+    public string GetEnemyName()
     {
-        return enemyNumber;
+        return enemyName;
     }
 
-    public void SetEnemyNumber(int enemyNumber)
+    public void SetEnemyName(string enemyName)
     {
-        this.enemyNumber = enemyNumber;
+        this.enemyName = enemyName;
     }
 }
