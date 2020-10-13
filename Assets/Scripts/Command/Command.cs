@@ -199,7 +199,7 @@ public class Command : MonoBehaviour
             //　コマンド選択画面時
             if (currentCommand == CommandMode.CommandPanel)
             {
-                //baseCommand.ExitCommand();
+                yusyaCommand.ExitCommand();
                 gameObject.SetActive(false);
                 //　ステータスキャラクター選択またはステータス表示時
             }
