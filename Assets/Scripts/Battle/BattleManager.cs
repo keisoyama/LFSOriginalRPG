@@ -253,6 +253,7 @@ public class BattleManager : MonoBehaviour
                         commandPanel.GetComponent<CanvasGroup>().interactable = true;
                         EventSystem.current.SetSelectedGameObject(selectedGameObjectStack.Pop());
                         currentCommand = CommandMode.SelectCommand;
+                        isCancelButtonPushed = false;
                     }
                     else if (currentCommand == CommandMode.SelectMagic)
                     {
@@ -266,6 +267,7 @@ public class BattleManager : MonoBehaviour
                         commandPanel.GetComponent<CanvasGroup>().interactable = true;
                         EventSystem.current.SetSelectedGameObject(selectedGameObjectStack.Pop());
                         currentCommand = CommandMode.SelectCommand;
+                        isCancelButtonPushed = false;
                     }
                     else if (currentCommand == CommandMode.SelectMagicAttackTarget)
                     {
@@ -279,6 +281,7 @@ public class BattleManager : MonoBehaviour
                         magicOrItemPanel.GetComponent<CanvasGroup>().interactable = true;
                         EventSystem.current.SetSelectedGameObject(selectedGameObjectStack.Pop());
                         currentCommand = CommandMode.SelectMagic;
+                        isCancelButtonPushed = false;
                     }
                     else if (currentCommand == CommandMode.SelectUseMagicOnAlliesTarget)
                     {
@@ -292,6 +295,7 @@ public class BattleManager : MonoBehaviour
                         magicOrItemPanel.GetComponent<CanvasGroup>().interactable = true;
                         EventSystem.current.SetSelectedGameObject(selectedGameObjectStack.Pop());
                         currentCommand = CommandMode.SelectMagic;
+                        isCancelButtonPushed = false;
                     }
                     else if (currentCommand == CommandMode.SelectItem)
                     {
@@ -305,6 +309,7 @@ public class BattleManager : MonoBehaviour
                         commandPanel.GetComponent<CanvasGroup>().interactable = true;
                         EventSystem.current.SetSelectedGameObject(selectedGameObjectStack.Pop());
                         currentCommand = CommandMode.SelectCommand;
+                        isCancelButtonPushed = false;
                     }
                     else if (currentCommand == CommandMode.SelectRecoveryItemTarget)
                     {
@@ -318,6 +323,7 @@ public class BattleManager : MonoBehaviour
                         magicOrItemPanel.GetComponent<CanvasGroup>().interactable = true;
                         EventSystem.current.SetSelectedGameObject(selectedGameObjectStack.Pop());
                         currentCommand = CommandMode.SelectItem;
+                        isCancelButtonPushed = false;
                     }
                 }
             }
