@@ -381,6 +381,8 @@ public class BattleManager : MonoBehaviour
         selectCharacterPanel.GetComponent<CanvasGroup>().interactable = false;
         magicOrItemPanel.GetComponent<CanvasGroup>().interactable = false;
 
+        cancelButton.gameObject.SetActive(true);
+
         //　キャラクターの名前を表示
         commandPanel.Find("CharacterName/Text").GetComponent<Text>().text = character.gameObject.name;
 
@@ -457,7 +459,7 @@ public class BattleManager : MonoBehaviour
         {
             battleCharacterButtonIns = Instantiate<GameObject>(battleCharacterButton, selectCharacterPanel);
             battleCharacterButtonIns.transform.Find("Text").GetComponent<Text>().text = enemy.gameObject.name;
-            battleCharacterButtonIns.GetComponent<Button>().onClick.AddListener(() => DirectAttack(attackCharacter, enemy));
+            battleCharacterButtonIns.GetComponent<Button>().onClick.AddListener(() => MakingDecisionButton(attackCharacter, enemy));
         }
 
         selectCharacterPanel.GetComponent<CanvasGroup>().interactable = true;
@@ -534,7 +536,7 @@ public class BattleManager : MonoBehaviour
             {
                 battleCharacterButtonIns = Instantiate<GameObject>(battleCharacterButton, selectCharacterPanel);
                 battleCharacterButtonIns.transform.Find("Text").GetComponent<Text>().text = enemy.gameObject.name;
-                battleCharacterButtonIns.GetComponent<Button>().onClick.AddListener(() => UseMagic(user, enemy, skill));
+                battleCharacterButtonIns.GetComponent<Button>().onClick.AddListener(() => MakingDecisionButton(user, enemy, skill));
             }
         }
         else
@@ -543,7 +545,7 @@ public class BattleManager : MonoBehaviour
             {
                 battleCharacterButtonIns = Instantiate<GameObject>(battleCharacterButton, selectCharacterPanel);
                 battleCharacterButtonIns.transform.Find("Text").GetComponent<Text>().text = allyCharacter.gameObject.name;
-                battleCharacterButtonIns.GetComponent<Button>().onClick.AddListener(() => UseMagic(user, allyCharacter, skill));
+                battleCharacterButtonIns.GetComponent<Button>().onClick.AddListener(() => MakingDecisionButton(user, allyCharacter, skill));
             }
         }
 
@@ -652,7 +654,7 @@ public class BattleManager : MonoBehaviour
         {
             battleCharacterButtonIns = Instantiate<GameObject>(battleCharacterButton, selectCharacterPanel);
             battleCharacterButtonIns.transform.Find("Text").GetComponent<Text>().text = allyCharacter.gameObject.name;
-            battleCharacterButtonIns.GetComponent<Button>().onClick.AddListener(() => UseItem(user, allyCharacter, item));
+            battleCharacterButtonIns.GetComponent<Button>().onClick.AddListener(() => MakingDecisionButton(user, allyCharacter, null ,item));
         }
 
         selectCharacterPanel.GetComponent<CanvasGroup>().interactable = true;
@@ -895,5 +897,40 @@ public class BattleManager : MonoBehaviour
     public void VanishEnemyObject(string enemyName)
     {
         charactersParent.Find(enemyName).gameObject.SetActive(false);
+    }
+
+    //攻撃を決定する決定ボタンを作る
+    private void MakingDecisionButton(GameObject attackCharacter, GameObject attackTarget,  Skill skill = null, Item item = null)
+    {
+        GameObject decisionButton;
+
+        if(currentCommand == CommandMode.SelectDirectAttacker)
+        {
+                    decisionButton = Instantiate<GameObject>(battleCharacterButton, selectCharacterPanel);
+                    decisionButton.transform.Find("Text").GetComponent<Text>().text = "決定";
+                    decisionButton.GetComponent<Button>().onClick.AddListener(() => DirectAttack(attackCharacter, attackTarget));
+        }
+        else if(currentCommand == CommandMode.SelectUseMagicOnAlliesTarget)
+        {
+            if (skill.GetSkillType() == Skill.Type.MagicAttack)
+            {
+                    decisionButton = Instantiate<GameObject>(battleCharacterButton, selectCharacterPanel);
+                    decisionButton.transform.Find("Text").GetComponent<Text>().text = "決定";
+                    decisionButton.GetComponent<Button>().onClick.AddListener(() => UseMagic(attackCharacter, attackTarget, skill));
+            }
+            else
+            {
+                    decisionButton = Instantiate<GameObject>(battleCharacterButton, selectCharacterPanel);
+                    decisionButton.transform.Find("Text").GetComponent<Text>().text = "決定";
+                    decisionButton.GetComponent<Button>().onClick.AddListener(() => UseMagic(attackCharacter, attackTarget, skill));
+            }
+        }
+        else if(currentCommand == CommandMode.SelectRecoveryItemTarget)
+        {
+                    decisionButton = Instantiate<GameObject>(battleCharacterButton, selectCharacterPanel);
+                    decisionButton.transform.Find("Text").GetComponent<Text>().text = "決定";
+                    decisionButton.GetComponent<Button>().onClick.AddListener(() => UseItem(attackCharacter, attackTarget, item));
+        }
+
     }
 }
