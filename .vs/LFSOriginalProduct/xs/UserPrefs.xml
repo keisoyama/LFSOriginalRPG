@@ -1,11 +1,9 @@
 ﻿<Properties StartupConfiguration="{ED49F48B-6966-DA7A-4782-285E7B39E8A8}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Status/EnemyStatus.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Skill/Skill.cs">
     <Files>
-      <File FileName="Assets/Scripts/Command/YusyaCommand.cs" Line="33" Column="31" />
-      <File FileName="Assets/Scripts/Battle/BattleManager.cs" Line="119" Column="83" />
-      <File FileName="Assets/Scripts/Battle/CharacterBattle.cs" Line="409" Column="1" />
-      <File FileName="Assets/Scripts/Status/BaseStatus.cs" Line="9" Column="29" />
-      <File FileName="Assets/Scripts/Status/EnemyStatus.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Battle/BattleManager.cs" Line="427" Column="57" />
+      <File FileName="Assets/Scripts/Battle/CharacterBattle.cs" Line="302" Column="34" />
+      <File FileName="Assets/Scripts/Skill/Skill.cs" Line="38" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

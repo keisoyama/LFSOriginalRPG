@@ -57,6 +57,9 @@ public class BattleManager : MonoBehaviour
     //　味方パーティーのコマンドパネル
     [SerializeField]
     private Transform commandPanel = null;
+    //　キャンセルボタン
+    [SerializeField]
+    private Transform cancelButton = null;
     //　戦闘用キャラクター選択ボタンプレハブ
     [SerializeField]
     private GameObject battleCharacterButton = null;
@@ -128,10 +131,7 @@ public class BattleManager : MonoBehaviour
                 allCharacterList.Add(ins);
             }
         }
-        if (battleData.GetEnemyPartyStatus() == null)
-        {
-            Debug.LogError("敵パーティーデータが設定されていません。");
-        }
+
         //　敵パーティーのプレハブをインスタンス化
         for (int i = 0; i < battleData.GetEnemyPartyStatus().GetEnemyGameObjectList().Count; i++)
         {
@@ -473,6 +473,7 @@ public class BattleManager : MonoBehaviour
         Skill directAtatck = characterSkill.Find(skill => skill.GetSkillType() == Skill.Type.DirectAttack);
         attackCharacter.GetComponent<CharacterBattle>().ChooseAttackOptions(CharacterBattle.BattleState.DirectAttack, attackTarget, directAtatck);
         commandPanel.gameObject.SetActive(false);
+        cancelButton.gameObject.SetActive(false);
         selectCharacterPanel.gameObject.SetActive(false);
     }
 
@@ -592,6 +593,7 @@ public class BattleManager : MonoBehaviour
         }
         user.GetComponent<CharacterBattle>().ChooseAttackOptions(battleState, targetCharacter, skill);
         commandPanel.gameObject.SetActive(false);
+        cancelButton.gameObject.SetActive(false);
         magicOrItemPanel.gameObject.SetActive(false);
         selectCharacterPanel.gameObject.SetActive(false);
     }
@@ -714,6 +716,7 @@ public class BattleManager : MonoBehaviour
         }
         userCharacterBattleScript.ChooseAttackOptions(battleState, targetCharacter, skill, item);
         commandPanel.gameObject.SetActive(false);
+        cancelButton.gameObject.SetActive(false);
         magicOrItemPanel.gameObject.SetActive(false);
         selectCharacterPanel.gameObject.SetActive(false);
     }
@@ -721,13 +724,14 @@ public class BattleManager : MonoBehaviour
     //　逃げる
     public void GetAway(GameObject character)
     {
-        character.transform.Find("Marker/Image2").gameObject.SetActive(false);
+        //character.transform.Find("Marker/Image2").gameObject.SetActive(false);
 
         var randomValue = Random.value;
         if (0f <= randomValue && randomValue <= 0.8f)
         {
             ShowMessage("逃げるのに成功した。");
             commandPanel.gameObject.SetActive(false);
+            cancelButton.gameObject.SetActive(false);
             battleIsOver = true;
             //　戦闘終了
             battleResult.InitialProcessingOfRanAwayResult();
@@ -736,6 +740,7 @@ public class BattleManager : MonoBehaviour
         {
             ShowMessage("逃げるのに失敗した。");
             commandPanel.gameObject.SetActive(false);
+            cancelButton.gameObject.SetActive(false);
             ChangeNextChara();
         }
     }

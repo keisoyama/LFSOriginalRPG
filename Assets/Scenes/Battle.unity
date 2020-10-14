@@ -6201,6 +6201,7 @@ MonoBehaviour:
   firstWaitingTime: 3
   timeToNextCharacter: 1
   commandPanel: {fileID: 884357586}
+  cancelButton: {fileID: 824491718}
   battleCharacterButton: {fileID: 9100742287163986451, guid: 55ec48fb6abf54f95846deae4b2d91f9,
     type: 3}
   selectCharacterPanel: {fileID: 1373609816}

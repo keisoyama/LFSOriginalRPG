@@ -271,10 +271,6 @@ public class CharacterBattle : MonoBehaviour
             //　敵のステータスのHPをセット
             targetCharacterBattleScript.SetHp(targetCharacterBattleScript.GetHp() - damage);
         }
-        else
-        {
-            Debug.LogError("直接攻撃でターゲットが設定されていない");
-        }
 
     }
 
@@ -302,12 +298,8 @@ public class CharacterBattle : MonoBehaviour
             //　相手のステータスのHPをセット
             targetCharacterBattleScript.SetHp(targetCharacterBattleScript.GetHp() - damage);
         }
-        else
-        {
-            Debug.LogError("魔法攻撃でターゲットが設定されていない");
-        }
 
-        Debug.Log(gameObject.name + "は" + currentTarget.name + "に" + currentSkill.GetKanjiName() + "をして" + damage + "を与えた。");
+        battleManager.ShowMessage(gameObject.name + "は" + currentTarget.name + "に" + currentSkill.GetKanjiName() + "をして" + damage + "を与えた。");
 
     }
 

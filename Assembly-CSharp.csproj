@@ -68,7 +68,6 @@
     <Compile Include="Assets\Scripts\Battle\BattleCommandPanelButton.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleData.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleManager.cs" />
-    <Compile Include="Assets\Scripts\Battle\BattleManagerMain.cs" />
     <Compile Include="Assets\Scripts\Battle\BattlePartyStatus.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleResult.cs" />
     <Compile Include="Assets\Scripts\Battle\BattleStatus.cs" />

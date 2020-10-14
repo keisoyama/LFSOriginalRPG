@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 126647d58470a4d5291bf35775331e89, type: 3}
   m_Name: GetAway
   m_EditorClassIdentifier: 
-  skillType: 2
+  skillType: 1
   kanjiName: "\u9003\u3052\u308B"
   hiraganaName: "\u306B\u3052\u308B"
   information: "\u5148\u982D\u304B\u3089\u9003\u3052\u308B"
