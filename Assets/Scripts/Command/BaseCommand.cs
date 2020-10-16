@@ -11,7 +11,10 @@ public class BaseCommand : MonoBehaviour
     private Vector3 velocity;
     //　キャラクターの走るスピード
     [SerializeField]
-    private float runSpeed = 0.1f;
+    private float runSpeed = 5f;
+
+    [SerializeField]
+    private Rigidbody2D rigidbody2D;
 
     //それぞれ対応しているボタンが押されているかどうか
     private bool right;
@@ -94,22 +97,22 @@ public class BaseCommand : MonoBehaviour
 
     void GoUp()
     {
-        transform.position += new Vector3(0, runSpeed, 0);
+        rigidbody2D.AddForce(new Vector3(0, runSpeed, 0));
     }
 
     void GoDown()
     {
-        transform.position += new Vector3(0, -runSpeed, 0);
+        rigidbody2D.AddForce(new Vector3(0, -runSpeed, 0));
     }
 
     void GoRight()
     {
-        transform.position += new Vector3(runSpeed, 0, 0);
+        rigidbody2D.AddForce(new Vector3(runSpeed, 0, 0));
     }
 
     void GoLeft()
     {
-        transform.position += new Vector3(-runSpeed, 0, 0);
+        rigidbody2D.AddForce(new Vector3(-runSpeed, 0, 0));
     }
 
     public void RightPushChange()

@@ -1,9 +1,7 @@
 ﻿<Properties StartupConfiguration="{ED49F48B-6966-DA7A-4782-285E7B39E8A8}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Battle/BattleManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Command/BaseCommand.cs">
     <Files>
-      <File FileName="Assets/Scripts/Battle/BattleManager.cs" Line="771" Column="1" />
-      <File FileName="Assets/Scripts/Battle/CharacterBattle.cs" Line="302" Column="34" />
-      <File FileName="Assets/Scripts/Skill/Skill.cs" Line="38" Column="17" />
+      <File FileName="Assets/Scripts/Command/BaseCommand.cs" Line="14" Column="31" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
