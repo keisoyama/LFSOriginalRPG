@@ -768,7 +768,6 @@ public class BattleManager : MonoBehaviour
         {
             
             var targetNum = (int)(Random.value * allyCharacterInBattleList.Count);
-            Debug.Log(targetNum);
             //　攻撃相手のCharacterBattleScript
             characterBattleScript.ChooseAttackOptions(CharacterBattle.BattleState.DirectAttack, allyCharacterInBattleList[targetNum], nowSkill);
         }
