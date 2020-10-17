@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Item
   m_EditorClassIdentifier: 
   skillType: 2
-  kanjiName: "\u30A2\u30A4\u30C6\u30E0"
-  hiraganaName: "\u3042\u3044\u3066\u3080"
-  information: "\u30A2\u30A4\u30C6\u30E0\u3092\u4F7F\u7528\u3059\u308B"
+  kanjiName: "\u3069\u3046\u3050"
+  hiraganaName: "\u3069\u3046\u3050"
+  information: "\u3069\u3046\u3050\u3092\u3064\u304B\u3046"
   skillUserEffect: {fileID: 0}
   skillReceivingSideEffect: {fileID: 0}

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Fire
   m_EditorClassIdentifier: 
   skillType: 3
-  kanjiName: "\u708E"
+  kanjiName: "\u307B\u306E\u304A"
   hiraganaName: "\u307B\u306E\u304A"
-  information: "\u708E\u5C5E\u6027\u306E\u9B54\u6CD5"
+  information: "\u3072\u305E\u304F\u305B\u3044\u306E\u307E\u307B\u3046"
   skillUserEffect: {fileID: 0}
   skillReceivingSideEffect: {fileID: 0}
   magicPower: 100

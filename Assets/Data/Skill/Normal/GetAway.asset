@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: GetAway
   m_EditorClassIdentifier: 
   skillType: 1
-  kanjiName: "\u9003\u3052\u308B"
+  kanjiName: "\u306B\u3052\u308B"
   hiraganaName: "\u306B\u3052\u308B"
-  information: "\u5148\u982D\u304B\u3089\u9003\u3052\u308B"
+  information: "\u305B\u3093\u3068\u3046\u304B\u3089\u306B\u3052\u308B"
   skillUserEffect: {fileID: 0}
   skillReceivingSideEffect: {fileID: 0}

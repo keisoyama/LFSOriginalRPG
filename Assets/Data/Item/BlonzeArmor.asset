@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BlonzeArmor
   m_EditorClassIdentifier: 
   itemType: 6
-  kanjiName: "\u9285\u306E\u93A7"
+  kanjiName: "\u3069\u3046\u306E\u3088\u308D\u3044"
   hiraganaName: "\u3069\u3046\u306E\u3088\u308D\u3044"
-  information: "\u5E73\u51E1\u306A\u9285\u306E\u93A7"
+  information: "\u3078\u3044\u307C\u3093\u306A\u3069\u3046\u306E\u3088\u308D\u3044"
   amount: 30

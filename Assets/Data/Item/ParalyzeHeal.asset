@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ParalyzeHeal
   m_EditorClassIdentifier: 
   itemType: 3
-  kanjiName: "\u9EBB\u75FA\u85AC"
+  kanjiName: "\u307E\u3072\u3084\u304F"
   hiraganaName: "\u307E\u3072\u3084\u304F"
-  information: "\u9EBB\u75FA\u3092\u6CBB\u3059"
+  information: "\u307E\u3072\u3092\u306A\u304A\u3059"
   amount: 0

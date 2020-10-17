@@ -404,7 +404,7 @@ if (EventSystem.current.currentSelectedGameObject == null) {
 
             
                 characterButtonIns = Instantiate<GameObject>(characterPanelButtonPrefab, selectCharacterPanel.transform);
-                characterButtonIns.GetComponentInChildren<Text>().text = "袋";
+                characterButtonIns.GetComponentInChildren<Text>().text = "ふくろ";
                 characterButtonIns.GetComponent<Button>().onClick.AddListener(() => CreateItemPanelButton(yusyaStatus));
             
         }
@@ -429,16 +429,16 @@ if (EventSystem.current.currentSelectedGameObject == null) {
         var text = "レベル\n";
         text += "HP\n";
         text += "MP\n";
-        text += "経験値\n";
-        text += "状態異常\n";
-        text += "力\n";
-        text += "素早さ\n";
-        text += "打たれ強さ\n";
-        text += "魔法力\n";
-        text += "装備武器\n";
-        text += "装備鎧\n";
-        text += "攻撃力\n";
-        text += "防御力\n";
+        text += "けいけんち\n";
+        text += "たいちょう\n";
+        text += "ちから\n";
+        text += "すばやさ\n";
+        text += "うたれづよさ\n";
+        text += "まほうりょく\n";
+        text += "そうびぶき\n";
+        text += "そうびよろい\n";
+        text += "こうげきりょく\n";
+        text += "ぼうぎょりょく\n";
         statusTitleText.text = text;
 
         //　HPとMPのDivision記号の表示
@@ -454,33 +454,33 @@ if (EventSystem.current.currentSelectedGameObject == null) {
         text += allyStatus.GetEarnedExperience() + "\n";
         if (!allyStatus.IsPoisonState() && !allyStatus.IsParalyzeState() && !allyStatus.IsSilentState())
         {
-            text += "正常";
+            text += "ふつう";
         }
         else
         {
             if (allyStatus.IsPoisonState())
             {
-                text += "毒";
+                text += "どく";
                 if (allyStatus.IsParalyzeState())
                 {
-                    text += "、痺れ";
+                    text += "、しびれ";
                     if (allyStatus.IsSilentState())
                     {
-                        text += "沈黙";
+                        text += "、ちんもく";
                     }
                 }
             }
             else if (allyStatus.IsParalyzeState())
             {
-                text += "痺れ";
+                text += "しびれ";
                 if (allyStatus.IsSilentState())
                 {
-                    text += "沈黙";
+                    text += "、ちんもく";
                 }
             }
             else if (allyStatus.IsSilentState())
             {
-                text += "沈黙";
+                text += "ちんもく";
             }
         }
 
@@ -571,17 +571,17 @@ if (EventSystem.current.currentSelectedGameObject == null) {
             var itemMenuButtonIns = Instantiate<GameObject>(useItemPanelButtonPrefab, useItemPanel.transform);
             if (item == allyStatus.GetEquipWeapon() || item == allyStatus.GetEquipArmor())
             {
-                itemMenuButtonIns.GetComponentInChildren<Text>().text = "装備を外す";
+                itemMenuButtonIns.GetComponentInChildren<Text>().text = "そうびをはずす";
                 itemMenuButtonIns.GetComponent<Button>().onClick.AddListener(() => RemoveEquip(allyStatus, item));
             }
             else
             {
-                itemMenuButtonIns.GetComponentInChildren<Text>().text = "装備する";
+                itemMenuButtonIns.GetComponentInChildren<Text>().text = "そうびする";
                 itemMenuButtonIns.GetComponent<Button>().onClick.AddListener(() => Equip(allyStatus, item));
             }
 
             itemMenuButtonIns = Instantiate<GameObject>(useItemPanelButtonPrefab, useItemPanel.transform);
-            itemMenuButtonIns.GetComponentInChildren<Text>().text = "捨てる";
+            itemMenuButtonIns.GetComponentInChildren<Text>().text = "すてる";
             itemMenuButtonIns.GetComponent<Button>().onClick.AddListener(() => ThrowAwayItem(allyStatus, item));
 
         }
@@ -594,11 +594,11 @@ if (EventSystem.current.currentSelectedGameObject == null) {
         {
 
             var itemMenuButtonIns = Instantiate<GameObject>(useItemPanelButtonPrefab, useItemPanel.transform);
-            itemMenuButtonIns.GetComponentInChildren<Text>().text = "使う";
+            itemMenuButtonIns.GetComponentInChildren<Text>().text = "つかう";
             itemMenuButtonIns.GetComponent<Button>().onClick.AddListener(() => UseItem(allyStatus, item));
 
             itemMenuButtonIns = Instantiate<GameObject>(useItemPanelButtonPrefab, useItemPanel.transform);
-            itemMenuButtonIns.GetComponentInChildren<Text>().text = "捨てる";
+            itemMenuButtonIns.GetComponentInChildren<Text>().text = "すてる";
             itemMenuButtonIns.GetComponent<Button>().onClick.AddListener(() => ThrowAwayItem(allyStatus, item));
 
         }
@@ -657,14 +657,14 @@ if (EventSystem.current.currentSelectedGameObject == null) {
         {
             if (toChara.GetHp() == toChara.GetMaxHp())
             {
-                useItemInformationPanel.GetComponentInChildren<Text>().text = toChara.GetCharacterName() + "は元気です。";
+                useItemInformationPanel.GetComponentInChildren<Text>().text = toChara.GetCharacterName() + "はげんきです。";
             }
             else
             {
                 toChara.SetHp(toChara.GetHp() + item.GetAmount());
                 //　アイテムを使用した旨を表示
-                useItemInformationPanel.GetComponentInChildren<Text>().text = fromChara.GetCharacterName() + "は" + item.GetKanjiName() + "を" + toChara.GetCharacterName() + "に使用しました。\n" +
-                    toChara.GetCharacterName() + "は" + item.GetAmount() + "回復しました。";
+                useItemInformationPanel.GetComponentInChildren<Text>().text = fromChara.GetCharacterName() + "は" + item.GetKanjiName() + "を" + toChara.GetCharacterName() + "につかった\n" +
+                    toChara.GetCharacterName() + "は" + item.GetAmount() + "かいふくした";
                 //　持っているアイテム数を減らす
                 fromChara.SetItemNum(item, fromChara.GetItemNum(item) - 1);
             }
@@ -673,14 +673,14 @@ if (EventSystem.current.currentSelectedGameObject == null) {
         {
             if (toChara.GetMp() == toChara.GetMaxMp())
             {
-                useItemInformationPanel.GetComponentInChildren<Text>().text = toChara.GetCharacterName() + "のMPは最大です。";
+                useItemInformationPanel.GetComponentInChildren<Text>().text = toChara.GetCharacterName() + "のMPはさいだいだ";
             }
             else
             {
                 toChara.SetMp(toChara.GetMp() + item.GetAmount());
                 //　アイテムを使用した旨を表示
-                useItemInformationPanel.GetComponentInChildren<Text>().text = fromChara.GetCharacterName() + "は" + item.GetKanjiName() + "を" + toChara.GetCharacterName() + "に使用しました。\n" +
-                    toChara.GetCharacterName() + "はMPを" + item.GetAmount() + "回復しました。";
+                useItemInformationPanel.GetComponentInChildren<Text>().text = fromChara.GetCharacterName() + "は" + item.GetKanjiName() + "を" + toChara.GetCharacterName() + "につかった\n" +
+                    toChara.GetCharacterName() + "はMPを" + item.GetAmount() + "かいふくした";
                 //　持っているアイテム数を減らす
                 fromChara.SetItemNum(item, fromChara.GetItemNum(item) - 1);
             }
@@ -689,11 +689,11 @@ if (EventSystem.current.currentSelectedGameObject == null) {
         {
             if (!toChara.IsPoisonState())
             {
-                useItemInformationPanel.GetComponentInChildren<Text>().text = toChara.GetCharacterName() + "は毒状態ではありません。";
+                useItemInformationPanel.GetComponentInChildren<Text>().text = toChara.GetCharacterName() + "はどくではない";
             }
             else
             {
-                useItemInformationPanel.GetComponentInChildren<Text>().text = toChara.GetCharacterName() + "は毒から回復しました。";
+                useItemInformationPanel.GetComponentInChildren<Text>().text = toChara.GetCharacterName() + "はどくがなおった";
                 toChara.SetPoisonState(false);
                 //　持っているアイテム数を減らす
                 fromChara.SetItemNum(item, fromChara.GetItemNum(item) - 1);
@@ -703,11 +703,11 @@ if (EventSystem.current.currentSelectedGameObject == null) {
         {
             if (!toChara.IsParalyzeState())
             {
-                useItemInformationPanel.GetComponentInChildren<Text>().text = toChara.GetCharacterName() + "は痺れ状態ではありません。";
+                useItemInformationPanel.GetComponentInChildren<Text>().text = toChara.GetCharacterName() + "はしびれではない";
             }
             else
             {
-                useItemInformationPanel.GetComponentInChildren<Text>().text = toChara.GetCharacterName() + "は痺れから回復しました。";
+                useItemInformationPanel.GetComponentInChildren<Text>().text = toChara.GetCharacterName() + "はしびれからなおった";
                 toChara.SetParalyze(false);
                 //　持っているアイテム数を減らす
                 fromChara.SetItemNum(item, fromChara.GetItemNum(item) - 1);
@@ -717,11 +717,11 @@ if (EventSystem.current.currentSelectedGameObject == null) {
         {
             if (!toChara.IsParalyzeState())
             {
-                useItemInformationPanel.GetComponentInChildren<Text>().text = toChara.GetCharacterName() + "は沈黙状態ではありません。";
+                useItemInformationPanel.GetComponentInChildren<Text>().text = toChara.GetCharacterName() + "はちんもくではない";
             }
             else
             {
-                useItemInformationPanel.GetComponentInChildren<Text>().text = toChara.GetCharacterName() + "は沈黙から回復しました。";
+                useItemInformationPanel.GetComponentInChildren<Text>().text = toChara.GetCharacterName() + "はちんもくがなおった";
                 toChara.SetSilence(false);
                 //　持っているアイテム数を減らす
                 fromChara.SetItemNum(item, fromChara.GetItemNum(item) - 1);
@@ -796,7 +796,7 @@ if (EventSystem.current.currentSelectedGameObject == null) {
         //　ItemPanelの子要素のアイテムパネルボタンから該当するアイテムのボタンを探して数を更新する
         var itemButton = itemPanelButtonList.Find(obj => obj.transform.Find("ItemName").GetComponent<Text>().text == item.GetKanjiName());
         itemButton.transform.Find("Num").GetComponent<Text>().text = allyStatus.GetItemNum(item).ToString();
-        useItemInformationPanel.GetComponentInChildren<Text>().text = item.GetKanjiName() + "を捨てました。";
+        useItemInformationPanel.GetComponentInChildren<Text>().text = item.GetKanjiName() + "をすてた";
 
         //　アイテム数が0だったらボタンとキャラクターステータスからアイテムを削除
         if (allyStatus.GetItemNum(item) == 0)
@@ -833,7 +833,7 @@ if (EventSystem.current.currentSelectedGameObject == null) {
     public void Equip(AllyStatus allyStatus, Item item)
     {
         //　キャラクター毎に装備出来る武器や鎧かどうかを調べ装備を切り替える
-        if (allyStatus.GetCharacterName() == "ユニティちゃん")
+        if (allyStatus.GetCharacterName() == "ゆうしゃ")
         {
             if (item.GetItemType() == Item.Type.Armor)
             {
@@ -846,7 +846,7 @@ if (EventSystem.current.currentSelectedGameObject == null) {
                     equipArmorButton.transform.Find("Equip").GetComponent<Text>().text = "";
                 }
                 allyStatus.SetEquipArmor(item);
-                useItemInformationPanel.GetComponentInChildren<Text>().text = allyStatus.GetCharacterName() + "は" + item.GetKanjiName() + "を装備しました。";
+                useItemInformationPanel.GetComponentInChildren<Text>().text = allyStatus.GetCharacterName() + "は" + item.GetKanjiName() + "をそうびした。";
             }
             else if (item.GetItemType() == Item.Type.Weapon)
             {
@@ -859,11 +859,11 @@ if (EventSystem.current.currentSelectedGameObject == null) {
                     equipWeaponButton.transform.Find("Equip").GetComponent<Text>().text = "";
                 }
                 allyStatus.SetEquipWeapon(item);
-                useItemInformationPanel.GetComponentInChildren<Text>().text = allyStatus.GetCharacterName() + "は" + item.GetKanjiName() + "を装備しました。";
+                useItemInformationPanel.GetComponentInChildren<Text>().text = allyStatus.GetCharacterName() + "は" + item.GetKanjiName() + "をそうびした。";
             }
             else
             {
-                useItemInformationPanel.GetComponentInChildren<Text>().text = allyStatus.GetCharacterName() + "は" + item.GetKanjiName() + "を装備出来ません。";
+                useItemInformationPanel.GetComponentInChildren<Text>().text = allyStatus.GetCharacterName() + "は" + item.GetKanjiName() + "をそうびできない";
             }
         }
         //　装備を切り替えたらItemPanelに戻る
@@ -902,7 +902,7 @@ if (EventSystem.current.currentSelectedGameObject == null) {
             allyStatus.SetEquipWeapon(null);
         }
         //　装備を外した旨を表示
-        useItemInformationPanel.GetComponentInChildren<Text>().text = allyStatus.GetCharacterName() + "は" + item.GetKanjiName() + "を外しました。";
+        useItemInformationPanel.GetComponentInChildren<Text>().text = allyStatus.GetCharacterName() + "は" + item.GetKanjiName() + "をはずした";
         //　装備を外したらItemPanelに戻る処理
         useItemPanelCanvasGroup.interactable = false;
         useItemPanel.SetActive(false);

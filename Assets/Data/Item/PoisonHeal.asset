@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PoisonHeal
   m_EditorClassIdentifier: 
   itemType: 2
-  kanjiName: "\u89E3\u6BD2\u85AC"
+  kanjiName: "\u3052\u3069\u304F\u3084\u304F"
   hiraganaName: "\u3052\u3069\u304F\u3084\u304F"
-  information: "\u6BD2\u3092\u6CBB\u3059"
+  information: "\u3069\u304F\u3092\u306A\u304A\u3059"
   amount: 0

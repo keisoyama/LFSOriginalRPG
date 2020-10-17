@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: DirectAttack
   m_EditorClassIdentifier: 
   skillType: 0
-  kanjiName: "\u653B\u6483"
+  kanjiName: "\u3053\u3046\u3052\u304D"
   hiraganaName: "\u3053\u3046\u3052\u304D"
-  information: "\u7269\u7406\u653B\u6483\u3092\u3059\u308B"
+  information: "\u3076\u3064\u308A\u3053\u3046\u3052\u304D\u3092\u3059\u308B"
   skillUserEffect: {fileID: 0}
   skillReceivingSideEffect: {fileID: 0}

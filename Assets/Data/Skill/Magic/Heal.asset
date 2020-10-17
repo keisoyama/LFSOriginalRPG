@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Heal
   m_EditorClassIdentifier: 
   skillType: 4
-  kanjiName: "\u7652\u3057\u306E\u5149"
+  kanjiName: "\u3044\u3084\u3057\u306E\u3072\u304B\u308A"
   hiraganaName: "\u3044\u3084\u3057\u306E\u3072\u304B\u308A"
-  information: "\u56DE\u5FA9\u9B54\u6CD5"
+  information: "\u304B\u3044\u3075\u304F\u307E\u307B\u3046"
   skillUserEffect: {fileID: 0}
   skillReceivingSideEffect: {fileID: 0}
   magicPower: 100

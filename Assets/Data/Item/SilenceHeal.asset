@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SilenceHeal
   m_EditorClassIdentifier: 
   itemType: 4
-  kanjiName: "\u6C88\u9ED9\u85AC"
+  kanjiName: "\u3061\u3093\u3082\u304F\u3084\u304F"
   hiraganaName: "\u3061\u3093\u3082\u304F\u3084\u304F"
-  information: "\u6C88\u9ED9\u3092\u6CBB\u3059"
+  information: "\u3061\u3093\u3082\u304F\u3092\u306A\u304A\u3059"
   amount: 0
