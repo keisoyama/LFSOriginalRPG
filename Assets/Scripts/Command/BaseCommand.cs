@@ -13,6 +13,12 @@ public class BaseCommand : MonoBehaviour
     [SerializeField]
     private float runSpeed = 5f;
 
+    private Animator animator;
+
+    private bool isMoving;
+
+    private Dictionary<string, float> Movingforward;
+
     [SerializeField]
     private Rigidbody2D rigidbody2D;
 
@@ -41,6 +47,13 @@ public class BaseCommand : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponentInChildren<Animator>();
+        rigidbody2D = GetComponent<Rigidbody2D>();
+        Dictionary<string, float> Movingforward = new Dictionary<string, float>()
+        {
+            {"x",0 },
+            {"y",0 }
+        };
         state = State.Normal;
         talk = GetComponent<Talk>();
     }
@@ -67,6 +80,13 @@ public class BaseCommand : MonoBehaviour
                     {
                         GoLeft();
                     }
+
+            if (!isMoving)
+            {
+                this.animator.speed = 0.0f;
+                return;
+            }
+
         }
     }
 
@@ -115,27 +135,105 @@ public class BaseCommand : MonoBehaviour
         rigidbody2D.AddForce(new Vector3(-runSpeed, 0, 0));
     }
 
-    public void RightPushChange()
-    {
-        //      右ボタンを押している間
-        right = !right;
-    }
-
-    public void LeftPushChange()
-    {
-        //      右ボタンを押している間
-        left = !left;
-    }
-
     public void UpPushChange()
     {
-        //      右ボタンを押している間
         up = !up;
+        isMoving = !isMoving;
+        if (isMoving)
+        {
+            SetStateToAnimatorStartWalking();
+        }
+        else
+        {
+            SetStateToAnimatorStopWalking();
+        }
+
     }
 
     public void DownPushChange()
     {
-        //      右ボタンを押している間
         down = !down;
+        isMoving = !isMoving;
+        if (isMoving)
+        {
+            SetStateToAnimatorStartWalking();
+        }
+        else
+        {
+            SetStateToAnimatorStopWalking();
+        }
     }
+
+
+    public void RightPushChange()
+    {
+        right = !right;
+        isMoving = !isMoving;
+        if (isMoving)
+        {
+            SetStateToAnimatorStartWalking();
+        }
+        else
+        {
+            SetStateToAnimatorStopWalking();
+        }
+    }
+
+    public void LeftPushChange()
+    {
+        left = !left;
+        isMoving = !isMoving;
+        if (isMoving)
+        {
+            SetStateToAnimatorStartWalking();
+        }
+        else
+        {
+            SetStateToAnimatorStopWalking();
+        }
+    }
+
+
+    private void SetStateToAnimatorStartWalking()
+    {
+　　　　　if (up)
+        {
+            animator.SetBool("isMovingUp",true);
+        }
+        else if (down)
+        {
+            animator.SetBool("isMovingDown", true);
+        }
+        else if (right)
+        {
+            animator.SetBool("isMovingRight", true);
+        }
+        else if (left)
+        {
+            animator.SetBool("isMovingLeft", true);
+        }
+    }
+
+    private void SetStateToAnimatorStopWalking()
+    {
+
+        if (up)
+        {
+            animator.SetBool("isMovingUp", false);
+        }
+        else if (down)
+        {
+            animator.SetBool("isMovingDown", false);
+        }
+        else if (right)
+        {
+            animator.SetBool("isMovingRight", false);
+        }
+        else if (left)
+        {
+            animator.SetBool("isMovingLeft", false);
+        }
+    }
+
+
 }
