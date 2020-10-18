@@ -17,8 +17,6 @@ public class BaseCommand : MonoBehaviour
 
     private bool isMoving;
 
-    private Dictionary<string, float> Movingforward;
-
     [SerializeField]
     private Rigidbody2D rigidbody2D;
 
@@ -49,11 +47,6 @@ public class BaseCommand : MonoBehaviour
     {
         animator = GetComponentInChildren<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
-        Dictionary<string, float> Movingforward = new Dictionary<string, float>()
-        {
-            {"x",0 },
-            {"y",0 }
-        };
         state = State.Normal;
         talk = GetComponent<Talk>();
     }
@@ -62,6 +55,7 @@ public class BaseCommand : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
         if (state == State.Normal)
         {
                     if (up)
@@ -80,13 +74,6 @@ public class BaseCommand : MonoBehaviour
                     {
                         GoLeft();
                     }
-
-            if (!isMoving)
-            {
-                this.animator.speed = 0.0f;
-                return;
-            }
-
         }
     }
 
@@ -207,40 +194,41 @@ public class BaseCommand : MonoBehaviour
     {
 　　　　　if (up)
         {
-            animator.SetBool("isMovingUp",true);
+            //animator.SetBool("isMovingUp",true);
         }
         else if (down)
         {
-            animator.SetBool("isMovingDown", true);
+            //animator.SetBool("isMovingDown", true);
         }
         else if (right)
         {
-            animator.SetBool("isMovingRight", true);
+            //animator.SetBool("isMovingRight", true);
         }
         else if (left)
         {
-            animator.SetBool("isMovingLeft", true);
+            //animator.SetBool("isMovingLeft", true);
         }
     }
 
     private void SetStateToAnimatorStopWalking()
     {
+        //this.animator.speed = 0.0f;
 
         if (!up)
         {
-            animator.SetBool("isMovingUp", false);
+            //animator.SetBool("isMovingUp", false);
         }
         else if (!down)
         {
-            animator.SetBool("isMovingDown", false);
+            //animator.SetBool("isMovingDown", false);
         }
         else if (!right)
         {
-            animator.SetBool("isMovingRight", false);
+            //animator.SetBool("isMovingRight", false);
         }
         else if (!left)
         {
-            animator.SetBool("isMovingLeft", false);
+           // animator.SetBool("isMovingLeft", false);
         }
     }
 

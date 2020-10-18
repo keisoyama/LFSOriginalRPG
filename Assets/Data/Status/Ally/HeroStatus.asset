@@ -49,5 +49,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 184bc8f72dcee48fdb3f19e01ef6f4b8, type: 2}
     - {fileID: 11400000, guid: 442fd3127fd744ec38497615cbd0cbf7, type: 2}
     - {fileID: 11400000, guid: cc6e80f7d830d46e39e8d11d004d2cb9, type: 2}
-    m_values: 0300000003000000030000000300000003000000
+    - {fileID: 11400000, guid: a15bcd30a5b9546a6811782ebdee6931, type: 2}
+    - {fileID: 11400000, guid: 616a07e67696f4604a4820d79efa1da0, type: 2}
+    m_values: 03000000030000000300000003000000030000000100000001000000
   levelUpData: {fileID: 11400000, guid: 216ce74163ec04364ada52a5d4d1f1bc, type: 2}
