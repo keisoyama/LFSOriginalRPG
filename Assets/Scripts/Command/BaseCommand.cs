@@ -11,7 +11,7 @@ public class BaseCommand : MonoBehaviour
     private Vector3 velocity;
     //　キャラクターの走るスピード
     [SerializeField]
-    private float runSpeed = 5f;
+    private float runSpeed = 10f;
 
     private Animator animator;
 
@@ -60,7 +60,7 @@ public class BaseCommand : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (state == State.Normal)
         {
@@ -145,6 +145,7 @@ public class BaseCommand : MonoBehaviour
         }
         else
         {
+            Stop();
             SetStateToAnimatorStopWalking();
         }
 
@@ -160,6 +161,7 @@ public class BaseCommand : MonoBehaviour
         }
         else
         {
+            Stop();
             SetStateToAnimatorStopWalking();
         }
     }
@@ -175,6 +177,7 @@ public class BaseCommand : MonoBehaviour
         }
         else
         {
+            Stop();
             SetStateToAnimatorStopWalking();
         }
     }
@@ -189,8 +192,14 @@ public class BaseCommand : MonoBehaviour
         }
         else
         {
+            Stop();
             SetStateToAnimatorStopWalking();
         }
+    }
+
+    void Stop()
+    {
+        rigidbody2D.velocity = Vector3.zero;
     }
 
 
