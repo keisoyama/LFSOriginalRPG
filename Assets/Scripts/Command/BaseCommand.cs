@@ -11,7 +11,7 @@ public class BaseCommand : MonoBehaviour
     private Vector3 velocity;
     //　キャラクターの走るスピード
     [SerializeField]
-    private float runSpeed = 10f;
+    private float runSpeed ;
 
     private Animator animator;
 
@@ -117,22 +117,22 @@ public class BaseCommand : MonoBehaviour
 
     void GoUp()
     {
-        rigidbody2D.AddForce(new Vector3(0, runSpeed, 0));
+        rigidbody2D.velocity = new Vector3(0, runSpeed, 0);
     }
 
     void GoDown()
     {
-        rigidbody2D.AddForce(new Vector3(0, -runSpeed, 0));
+        rigidbody2D.velocity = new Vector3(0, -runSpeed, 0);
     }
 
     void GoRight()
     {
-        rigidbody2D.AddForce(new Vector3(runSpeed, 0, 0));
+        rigidbody2D.velocity = new Vector3(runSpeed, 0, 0);
     }
 
     void GoLeft()
     {
-        rigidbody2D.AddForce(new Vector3(-runSpeed, 0, 0));
+        rigidbody2D.velocity = new Vector3(-runSpeed, 0, 0);
     }
 
     public void UpPushChange()
