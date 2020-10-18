@@ -81,11 +81,11 @@ public class BaseCommand : MonoBehaviour
                         GoLeft();
                     }
 
-            /*if (!isMoving)
+            if (!isMoving)
             {
                 this.animator.speed = 0.0f;
                 return;
-            }*/
+            }
 
         }
     }
@@ -217,19 +217,19 @@ public class BaseCommand : MonoBehaviour
     private void SetStateToAnimatorStopWalking()
     {
 
-        if (up)
+        if (!up)
         {
             animator.SetBool("isMovingUp", false);
         }
-        else if (down)
+        else if (!down)
         {
             animator.SetBool("isMovingDown", false);
         }
-        else if (right)
+        else if (!right)
         {
             animator.SetBool("isMovingRight", false);
         }
-        else if (left)
+        else if (!left)
         {
             animator.SetBool("isMovingLeft", false);
         }
