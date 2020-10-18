@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\Battle\CharacterBattle.cs" />
     <Compile Include="Assets\Scripts\Battle\DeleteMessagePanel.cs" />
     <Compile Include="Assets\Scripts\Battle\MusicManager.cs" />
+    <Compile Include="Assets\Scripts\Camera\CameraMoving.cs" />
     <Compile Include="Assets\Scripts\Command\BaseCommand.cs" />
     <Compile Include="Assets\Scripts\Command\Command.cs" />
     <Compile Include="Assets\Scripts\Command\IdleCommand.cs" />

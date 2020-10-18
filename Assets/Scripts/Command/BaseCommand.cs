@@ -81,11 +81,11 @@ public class BaseCommand : MonoBehaviour
                         GoLeft();
                     }
 
-            if (!isMoving)
+            /*if (!isMoving)
             {
                 this.animator.speed = 0.0f;
                 return;
-            }
+            }*/
 
         }
     }
