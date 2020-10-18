@@ -16,15 +16,15 @@ MonoBehaviour:
   isPoisonState: 0
   isParalyzeState: 0
   isSilentState: 0
-  level: 1
-  maxHp: 1000
+  level: 2
+  maxHp: 1012
   hp: 1000
-  maxMp: 50
-  mp: 50
-  agility: 10
-  power: 50
-  strikingStrength: 30
-  magicPower: 10
+  maxMp: 89
+  mp: 89
+  agility: 11
+  power: 51
+  strikingStrength: 1
+  magicPower: 11
   strikingMagic: 30
   phsicalResistance: 0
   magicalResistance: 0
@@ -39,7 +39,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 118611c45e72b42a09d44771e049de3a, type: 2}
   - {fileID: 11400000, guid: 329193db07fc64397bf04fe6c05e692f, type: 2}
   - {fileID: 11400000, guid: d01ea2475b190418baabc3076cd30ea0, type: 2}
-  earnedExperience: 0
+  earnedExperience: 120
   equipWeapon: {fileID: 11400000, guid: 616a07e67696f4604a4820d79efa1da0, type: 2}
   equipArmor: {fileID: 11400000, guid: a15bcd30a5b9546a6811782ebdee6931, type: 2}
   itemDictionary:

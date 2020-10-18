@@ -167,7 +167,7 @@ public class BattleManager : MonoBehaviour
         //　ランダム値のシードの設定
         Random.InitState((int)Time.time);
 
-        yusyaObjct = GameObject.Find("勇者");
+        yusyaObjct = GameObject.Find("ゆうしゃ");
     }
 
     // Update is called once per frame

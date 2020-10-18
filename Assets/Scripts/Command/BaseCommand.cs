@@ -12,6 +12,8 @@ public class BaseCommand : MonoBehaviour
     //　キャラクターの走るスピード
     [SerializeField]
     private float runSpeed ;
+    [SerializeField]
+    private Vector2 lastMove;
 
     private Animator animator;
 
@@ -25,6 +27,10 @@ public class BaseCommand : MonoBehaviour
     private bool left;
     private bool up;
     private bool down;
+
+    //水平か垂直移動の判別
+    private bool isHorizontalMove;
+    private bool isVerticalMove;
 
     public enum State
     {
@@ -58,22 +64,22 @@ public class BaseCommand : MonoBehaviour
 
         if (state == State.Normal)
         {
-                    if (up)
-                    {
-                        GoUp();
-                    }
-                    else if (down)
-                    {
-                        GoDown();
-                    }
-                    else if (right)
-                    {
-                        GoRight();
-                    }
-                    else if (left)
-                    {
-                        GoLeft();
-                    }
+                if (up)
+                {
+                    GoUp();
+                }
+                else if (down)
+                {
+                    GoDown();
+                }
+                else if (right)
+                {
+                    GoRight();
+                }
+                else if (left)
+                {
+                    GoLeft();
+                }
         }
     }
 
@@ -128,14 +134,19 @@ public class BaseCommand : MonoBehaviour
         isMoving = !isMoving;
         if (isMoving)
         {
+            isVerticalMove = !isVerticalMove;
+            animator.SetBool("isMoving", true);
             SetStateToAnimatorStartWalking();
+            Animate();
         }
         else
         {
+            isVerticalMove = !isVerticalMove;
+            animator.SetBool("isMoving", false);
             Stop();
             SetStateToAnimatorStopWalking();
+            Animate();
         }
-
     }
 
     public void DownPushChange()
@@ -144,43 +155,57 @@ public class BaseCommand : MonoBehaviour
         isMoving = !isMoving;
         if (isMoving)
         {
+            animator.SetBool("isMoving", true);
             SetStateToAnimatorStartWalking();
+            Animate();
         }
         else
         {
+            animator.SetBool("isMoving", false);
             Stop();
             SetStateToAnimatorStopWalking();
+            Animate();
         }
     }
 
 
     public void RightPushChange()
     {
+        isHorizontalMove = !isHorizontalMove;
         right = !right;
         isMoving = !isMoving;
         if (isMoving)
         {
+            animator.SetBool("isMoving", true);
             SetStateToAnimatorStartWalking();
+            Animate();
         }
         else
         {
+            animator.SetBool("isMoving", false);
             Stop();
             SetStateToAnimatorStopWalking();
+            Animate();
         }
     }
 
     public void LeftPushChange()
     {
+        isHorizontalMove = !isHorizontalMove;
         left = !left;
         isMoving = !isMoving;
         if (isMoving)
         {
+            animator.SetBool("isMoving", true);
             SetStateToAnimatorStartWalking();
+            Animate();
         }
         else
         {
+            animator.SetBool("isMoving", false);
             Stop();
             SetStateToAnimatorStopWalking();
+            Animate();
         }
     }
 
@@ -232,5 +257,30 @@ public class BaseCommand : MonoBehaviour
         }
     }
 
-
-}
+    public void Animate()
+    {
+        if (isMoving)
+        {
+            if (isHorizontalMove)
+            {
+                lastMove.x = rigidbody2D.velocity.x;
+                lastMove.y = 0;
+            }
+            if (isVerticalMove)
+            {
+                lastMove.y = rigidbody2D.velocity.y;
+                lastMove.x = 0;
+            }
+            animator.SetFloat("Dir_X", rigidbody2D.velocity.x);
+            animator.SetFloat("Dir_Y", rigidbody2D.velocity.y);
+            animator.SetFloat("LastMove_X", lastMove.x);
+            animator.SetFloat("LastMove_Y", lastMove.y);
+        }
+        else
+        {
+            lastMove = Vector2.zero;
+            animator.SetFloat("Dir_X", 0);
+            animator.SetFloat("Dir_Y", 0);
+        }
+    }
+    }
