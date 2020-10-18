@@ -57,6 +57,13 @@ public class BaseCommand : MonoBehaviour
         talk = GetComponent<Talk>();
     }
 
+    private void Update()
+    {
+        if(state == State.Normal)
+        {
+            Animate();
+        }
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -137,7 +144,6 @@ public class BaseCommand : MonoBehaviour
             isVerticalMove = !isVerticalMove;
             animator.SetBool("isMoving", true);
             SetStateToAnimatorStartWalking();
-            Animate();
         }
         else
         {
@@ -145,7 +151,6 @@ public class BaseCommand : MonoBehaviour
             animator.SetBool("isMoving", false);
             Stop();
             SetStateToAnimatorStopWalking();
-            Animate();
         }
     }
 
@@ -155,16 +160,16 @@ public class BaseCommand : MonoBehaviour
         isMoving = !isMoving;
         if (isMoving)
         {
+            isVerticalMove = !isVerticalMove;
             animator.SetBool("isMoving", true);
             SetStateToAnimatorStartWalking();
-            Animate();
         }
         else
         {
+            isVerticalMove = !isVerticalMove;
             animator.SetBool("isMoving", false);
             Stop();
             SetStateToAnimatorStopWalking();
-            Animate();
         }
     }
 
@@ -178,14 +183,12 @@ public class BaseCommand : MonoBehaviour
         {
             animator.SetBool("isMoving", true);
             SetStateToAnimatorStartWalking();
-            Animate();
         }
         else
         {
             animator.SetBool("isMoving", false);
             Stop();
             SetStateToAnimatorStopWalking();
-            Animate();
         }
     }
 
@@ -198,14 +201,12 @@ public class BaseCommand : MonoBehaviour
         {
             animator.SetBool("isMoving", true);
             SetStateToAnimatorStartWalking();
-            Animate();
         }
         else
         {
             animator.SetBool("isMoving", false);
             Stop();
             SetStateToAnimatorStopWalking();
-            Animate();
         }
     }
 
@@ -271,16 +272,13 @@ public class BaseCommand : MonoBehaviour
                 lastMove.y = rigidbody2D.velocity.y;
                 lastMove.x = 0;
             }
-            animator.SetFloat("Dir_X", rigidbody2D.velocity.x);
-            animator.SetFloat("Dir_Y", rigidbody2D.velocity.y);
             animator.SetFloat("LastMove_X", lastMove.x);
             animator.SetFloat("LastMove_Y", lastMove.y);
         }
         else
         {
-            lastMove = Vector2.zero;
-            animator.SetFloat("Dir_X", 0);
-            animator.SetFloat("Dir_Y", 0);
+            animator.SetFloat("LastMove_X", 0);
+            animator.SetFloat("LastMove_Y", 0);
         }
     }
     }
